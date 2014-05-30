@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dac2014_json_model_Imagen" object="${imagen}" path="/imagens" z="o0XtXb54dFST/6+lzVcvN1aM1g0=">
+        <field:display field="nombre" id="s_com_dac2014_json_model_Imagen_nombre" object="${imagen}" z="MJ6f6+5OS8Eem8LrckYMdBCLnVM="/>
+        <field:display field="descripcion" id="s_com_dac2014_json_model_Imagen_descripcion" object="${imagen}" z="DrqmtiZW9BIKi6q3O2Q/qIeCqQk="/>
+        <field:display field="ruta" id="s_com_dac2014_json_model_Imagen_ruta" object="${imagen}" z="mHVi3O1KKUtE7eadIVpsqotvlrk="/>
+        <field:display field="image" id="s_com_dac2014_json_model_Imagen_image" object="${imagen}" z="1J2MQ8uoqe8ZCJl9scwx9IBmJoQ="/>
+        <field:display field="contentType" id="s_com_dac2014_json_model_Imagen_contentType" object="${imagen}" z="vn2YNswH/cFOTuZ/3S0TZpKm00k="/>
+        <script>var nextstate = 'false';function pablo_el_que_lee(e){e.target.src=e.target.src.substr(0,e.target.src.indexOf('=')+1)+nextstate;if(nextstate=='true')nextstate='false';else nextstate='true';return false;}</script>
+        <img src="${imagen.id}/image?thumb=true" onClick="return pablo_el_que_lee(event);"/>
+    </page:show>
+</div>

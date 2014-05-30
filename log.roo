@@ -1,0 +1,31 @@
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-05-28 22:09:57
+project --topLevelPackage com.dac2014.json
+jpa setup --provider HIBERNATE --database H2_IN_MEMORY 
+entity jpa --class com.dac2014.json.model.Imagen
+field string nombre
+field string descripcion
+field string ruta
+web mvc json setup
+web mvc json all
+perform eclipse
+json all
+web mvc json add --jsonObject ~.model.Imagen
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-05-28 22:21:04
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-05-28 22:39:54
+perform eclipse
+controller all --package com.dac2014.json.controller
+perform eclipse
+web mvc json add --jsonObject ~.model.Imagen --class ~.controller.ImagenJson
+perform eclipse
+web mvc json add --jsonObject ~.model.Imagen --class ~.services.ImagenRESTController
+perform eclipse
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-05-29 20:14:00
+perform eclipse
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-05-29 20:27:44
+perform eclipse
+perform eclipse
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-05-29 20:39:42
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-05-29 20:41:39
+perform eclipse

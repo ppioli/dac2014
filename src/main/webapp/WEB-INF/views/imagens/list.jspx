@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dac2014_json_model_Imagen" items="${imagens}" z="ao7yaKEPjck3eGoKEzlb0PqJ81c=">
+        <table:table data="${imagens}" id="l_com_dac2014_json_model_Imagen" path="/imagens" z="TWdRAlAwGuLLKj7Aa+lXnd5XPII=">
+            <table:column id="c_com_dac2014_json_model_Imagen_nombre" property="nombre" z="5Egbymwdm9JWc7B3WfIRIog2tL8="/>
+            <table:column id="c_com_dac2014_json_model_Imagen_descripcion" property="descripcion" z="CJ7sgag/j62HXV4vceocZhC+ffo="/>
+            <table:column id="c_com_dac2014_json_model_Imagen_ruta" property="ruta" z="DkSusipNUKUsTIL9RZM2D60fz/E="/>
+            <table:column id="c_com_dac2014_json_model_Imagen_image" property="image" z="NbTXXefKYnjZrfiYtH2/S/yyGXU="/>
+            <table:column id="c_com_dac2014_json_model_Imagen_contentType" property="contentType" z="IZEb13TjiI92rU8aKIUQL8ibZNU="/>
+        </table:table>
+    </page:list>
+	<script>
+		console.log("holas");
+		require(["dojo/store/JsonRest"], function(JsonRest){
+			  var store = new JsonRest({
+			    target: "/json/json/imagens/",
+			    accepts: "application/json"
+			  });
+				
+			  // Get an object by identity
+			  store.get(1).then(function(item){
+			    console.log(item);
+			  });
+				/*
+			  // Query for objects with options
+			  store.query("foo=bar", {
+			    start: 10,
+			    count: 10,
+			    sort: [
+			      { attribute: "baz", descending: true }
+			    ]
+			  }).then(function(results){
+			    // results should contain up to 10 items, sorted by "baz" in descending fashion
+			  });
+
+			  // Store an object identified by identity
+			  store.put({
+			    foo: "bar"
+			  }, {
+			    id: 3
+			  });
+
+			  // Remove an object by ID
+			  store.remove(3);
+			  */
+			});
+		
+	</script>
+</div>
