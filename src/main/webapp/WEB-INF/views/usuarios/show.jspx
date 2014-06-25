@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dac2014_json_model_Usuario" object="${usuario}" path="/usuarios" z="/aCVfjlHLG6mZwEHMcdbD/XSHNw=">
+        <field:display field="nombre" id="s_com_dac2014_json_model_Usuario_nombre" object="${usuario}" z="VeqORz8rZIqC5frhVHRt48Ms4Ds="/>
+        <field:display field="apellido" id="s_com_dac2014_json_model_Usuario_apellido" object="${usuario}" z="6jgVwICx2+PLkqRCC/AHS16wad0="/>
+        <field:display field="email" id="s_com_dac2014_json_model_Usuario_email" object="${usuario}" z="N/nO1ZeqNGwc1nIT3Nq6i/n6dpI="/>
+        <field:display date="true" dateTimePattern="${usuario_fechanac_date_format}" field="fechaNac" id="s_com_dac2014_json_model_Usuario_fechaNac" object="${usuario}" z="t54ffOvyB1/oabHej92k2DhlZk0="/>
+        <field:display date="true" dateTimePattern="${usuario_fecharegistro_date_format}" field="fechaRegistro" id="s_com_dac2014_json_model_Usuario_fechaRegistro" object="${usuario}" z="Bxr2d3dr6Ur9BTGsYLgII6BdJsc="/>
+    </page:show>
+</div>

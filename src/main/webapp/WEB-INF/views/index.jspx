@@ -1,14 +1,398 @@
 <div xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
-  <jsp:directive.page contentType="text/html;charset=UTF-8" />
-  <jsp:output omit-xml-declaration="yes" />
-  <spring:message var="app_name" code="application_name" htmlEscape="false" />
-  <spring:message var="title" code="welcome_titlepane" arguments="${app_name}" htmlEscape="false" />
-  <util:panel id="title" title="${title}">
-    <h3>
-      <spring:message code="welcome_h3" arguments="${app_name}" />
-    </h3>
-    <p>
-      <spring:message code="welcome_text" />
-    </p>
-  </util:panel>
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	<spring:message var="app_name" code="application_name" htmlEscape="false" />
+	<spring:message var="title" code="welcome_titlepane" arguments="${app_name}" htmlEscape="false" />
+	<spring:url value="/resources/js/dijit" var="dijit_base" />
+  
+	<util:panel id="title" title="${title}">
+	    <h3>
+	      <spring:message code="welcome_h3" arguments="${app_name}" />
+	    </h3>
+	    <p>
+	      <spring:message code="welcome_text" />
+	    </p>
+	</util:panel>
+	<script>
+	var pub;
+	var fieldsTipos = {
+			NUMBER : 1,
+			TEXT : 2,
+			VALIDTEX: 3,
+			HIDDEN: 4,
+			DEPENDENCY: 5
+	}
+	dojo.require("dojo.store.JsonRest");
+    dojo.require("dojo.store.Memory");
+    dojo.require("dojo.store.Cache");
+    dojo.require("dojox.grid.DataGrid");
+    dojo.require("dojo.data.ObjectStore");
+    dojo.require("dijit.form.Button");
+    dojo.require("dijit.layout.TabContainer");
+	dojo.require("dijit.layout.ContentPane");
+	dojo.require("dijit.layout.AccordionContainer");
+	dojo.require("dijit.form.Form");
+	dojo.require("dijit.form.NumberTextBox");
+	dojo.require("dijit.form.TextBox");
+	dojo.require("dijit.Dialog");
+	
+	dojo.require("dijit.layout.StackContainer");
+	dojo.require("dijit.layout.StackController");
+	dojo.require("gridx.core.model.cache.Sync");
+	dojo.require("gridx.Grid");
+	dojo.require("dojo.domReady!");
+    dojo.ready(function(){
+    	
+		function createCrud(entidad, path, structure, node){
+			
+			console.log("Crud");
+			
+			divStack = dojo.doc.createElement('div');
+			divCont = dojo.doc.createElement('div');
+			
+			var aContainer = new dijit.layout.StackContainer(
+					{
+						style: "width: 100%; height:500px",
+			        	id: "stack"
+			        },
+					divStack);
+			var controller = new dijit.layout.StackController({containerId: "stack"}, divCont)
+			
+			
+			
+			function checkForDependencies(structure, name){
+				var childs = [];
+				for (var i in structure){
+					
+	        		if(structure[i].tipo == fieldsTipos.DEPENDENCY){
+	        			var child = {};
+	        			child['structure'] = structure[i].atributos;
+	        			child['store'] = new dojo.store.Memory();
+	        			child['name'] = structure[i].field;
+	        			child['childs']= checkForDependencies(structure[i].atributos);
+	        			childs.push(child);
+	        		}
+	        	}
+				return childs;
+			}
+			var tree = {
+					'structure':structure,
+					'name':'viajes', 
+					'store':new dojo.store.Memory(),  
+					'childs':checkForDependencies(structure),
+					
+					};
+			function addForms(node){
+				console.log("node");
+				console.log(node);
+				node['form'] = getForm(node, aContainer);
+				var childs = node['childs'];
+				if(childs.length != 0){
+					for(var i in childs){
+						console.log("child");
+						console.log(childs[i]);
+						addForms(childs[i]);
+					}
+				}
+				console.log("node");
+				console.log(node);
+				
+			}
+			addForms(tree);
+			
+			node.appendChild(divStack);
+			
+	        pub = controller;
+	        
+	        var crud = getCrudTabbedPane(tree, aContainer);
+	        aContainer.addChild(crud);
+	        node.appendChild(divCont);
+	        controller.startup();
+	        
+	        aContainer.startup();
+	        return aContainer;
+		}
+	        
+        function getCrudTabbedPane(node, s){
+        	var stack = s;
+        	
+        	var confirmDialog = new dijit.Dialog({
+    	        title: "Exito",
+    	        content: "Contenido guardado con exito",
+    	        style: "width: 300px"
+    	    });
+        	
+            var main = new  dijit.layout.AccordionContainer({
+            	style: "height: 100%; width: 95%; ",
+                
+            });
+            var content = new dijit.layout.ContentPane({
+            	style: "height: 100%; width: 100%; ",
+            	title: node['name'],
+            });
+            var myButton = new dijit.form.Button({
+                label: "Nuevo",
+                onClick: function(){
+                	var parent_id = -1;
+                	nuevaPestania(null, node, parent_id);
+                }
+            });
+            
+            var buttonPane = new  dijit.layout.ContentPane({
+            	style: "height: 20px; width: 95%;"
+            });
+            
+            buttonPane.addChild(myButton);
+            content.addChild(buttonPane);
+            var grid = getGrid(node, nuevaPestania);
+            content.addChild(grid);
+            main.addChild(content);
+            
+            
+            
+            main.startup();
+            
+            //Functions
+            function nuevaPestania(objeto, node, id){
+            	
+            	
+            	var main = new  dijit.layout.AccordionContainer({
+                	style: "height: 100%; width: 95%;",
+                    
+                });
+            	var cp3 = new  dijit.layout.ContentPane({
+                	style: "height: 100%; width: 100%;overflow:auto",
+                    title: node['name'],
+                });
+                
+                if(objeto!=null){
+                	var tempForm = node['form'];v9
+                	tempForm.set('value', objeto);
+                	cp3.domNode.appendChild(tempForm.domNode);
+                }else{
+                	cp3.domNode.appendChild(node['form'].domNode);
+                	
+                }
+                main.addChild(cp3);
+                stack.addChild(main);
+                stack.selectChild(main);
+                stack.startup();
+            }
+            
+           
+            return main;
+        }
+		
+        function getGrid(node, updateFunc){
+        	
+        	var gridStructure = [];
+        	
+        	var estructura = node['structure'];
+			for(var i in estructura){
+				if(estructura[i].tipo != fieldsTipos.DEPENDENCY){
+					gridStructure.push(estructura[i]);
+				}
+			}
+        	store = node['store'];
+            var grid = new gridx.Grid({
+            	//style: "height: 1000px; width: 1000px;",
+                store: dataStore = store,
+                structure: gridStructure,
+                cacheClass: gridx.core.model.cache.Sync,
+                pageSize: 10,
+                style: "width: 100%;",
+                autoHeight: true,
+                selectionMode: "single"
+            });
+            
+            grid.on("RowClick", function(evt){
+               
+                var rowData = grid.getItem(evt.rowIndex);
+                updateFunc(rowData, "Actualizar");
+            
+        	}, true);
+            
+            return grid;
+        }
+        
+        function guardar(node){
+        	var jason = dojo.formToObject(node['form'].id);
+        	
+        	node['store'].add(jason).then(
+      		      function(data){
+      		    	  confirmDialog.set({content:"Exito!"});
+      		    	  confirmDialog.show();
+      		    	stack.back();
+      		      },
+      		      function(error){
+      		    	  console.log(error)
+      		    	  confirmDialog.set({content:"Fracaso!"});
+      		    	  confirmDialog.show();
+      		      });
+        	
+        }
+        
+        function update(form){
+        	console.log("update");
+        	var jason = dojo.formToObject(node['form'].id);
+        	node['store'].put(jason, {id : jason.id}).then(
+      		      function(data){
+      		    	  confirmDialog.set({content:"Exito!"});
+      		    	  confirmDialog.show();
+      		      },
+      		      function(error){
+      		    	  console.log(error)
+      		    	  confirmDialog.set({content:"Fracaso!"});
+      		    	  confirmDialog.show();
+      		      });
+        }
+        
+        function getInput(field){
+        	var a;
+        	switch(field.field){
+        		case fieldsTipos.NUMBER:
+        			a = new dijit.form.NumberTextBox({
+          	          name: field.field,
+          	    	});
+        			a.startup();
+            		return a;
+        		case fieldsTipos.HIDDEN:
+        			a = new dijit.form.TextBox({
+          	          name: field.field,
+          	    	});
+        			a.domNode.style.display = 'none'
+        			a.startup();
+        			
+            		return a;
+        		//case fieldsTipos.DEPENDENCY:
+        		//	a = getTabbedCrud(field.field, field.path, flield.atributes)
+        		default:
+        			a = new dijit.form.TextBox({
+                		name: field.field
+                	});
+	        		a.startup();
+	        		return a;
+        	
+        	}
+        }
+        function getForm(node, s){
+        	var stack = s;
+        	var form = new dijit.form.Form({
+                encType: 'multipart/form-data',
+                action: '',
+                method: '',
+            }, dojo.doc.createElement('div'));
+        	
+        	var dependenciesDiv = dojo.doc.createElement('div');
+        	var fieldsDiv = dojo.doc.createElement('div');
+        	var aContainer = new dijit.layout.ContentPane({style: "width: 95%; height: 90%;"}, dependenciesDiv);
+        	
+        	var div = dojo.doc.createElement('div');
+    		div.appendChild(dojo.doc.createTextNode("id: "));
+        	var id = getInput({name:"id", field:"id", tipo:fieldsTipos.HIDDEN, atributos:{}}).domNode;
+        	div.appendChild(id);
+        	fieldsDiv.appendChild(div);
+        	div = dojo.doc.createElement('div');
+    		div.appendChild(dojo.doc.createTextNode("version: "));
+            var version = getInput({name:"version", field:"version", tipo:fieldsTipos.HIDDEN, atributos:{}}).domNode;
+            div.appendChild(version)
+            fieldsDiv.appendChild(div);
+        	
+        	if(parent != null){
+        		var parent = getInput({name:"parent_id", field:"parent_id", tipo:fieldsTipos.HIDDEN, atributos:{}}).domNode;
+        		parent.appendChild(parent);
+        	}
+        	var structure = node['structure'];
+        	console.log(structure);
+        	for(var i in structure){
+        		if(structure[i].tipo != fieldsTipos.DEPENDENCY){
+        			var ff = dojo.doc.createElement('div');
+            		ff.appendChild(dojo.doc.createTextNode(structure[i].name+": "));
+            		var asd = getInput(structure[i]);
+            		ff.appendChild(asd.domNode);
+            		fieldsDiv.appendChild(ff);
+        		}
+        		
+        	}
+        	var childs = node['childs'];
+        	for(var i in childs){
+        		dependenciesDiv.appendChild(getCrudTabbedPane(childs[i], stack).domNode)
+        		
+        	}
+        	 var buttonsdiv = dojo.doc.createElement('div'); 
+        	
+        	 var submitButton = new dijit.form.Button({
+                 label: "Guardar",
+                 onClick: function(){
+                		guardar(node); 
+                 	}
+                 })
+        	 var cancelButton = new dijit.form.Button({
+                 label: "Cancelar",
+                 onClick: function(){
+                	   stack.back();
+                 	}
+                 })
+        	buttonsdiv.appendChild(submitButton.domNode);
+        	buttonsdiv.appendChild(cancelButton.domNode);
+        	
+        	form.domNode.appendChild(buttonsdiv);
+        	form.domNode.appendChild(fieldsDiv);
+        	form.domNode.appendChild(dependenciesDiv);
+        	
+        	form.startup();
+        	return form;
+        }
+        
+        console.log("dom ready");
+        
+        
+        	
+        
+    	var structure = [
+    	                 {name:"nombre", field:"nombre", tipo:fieldsTipos.NUMBER, atributos:{}},
+    	                 {name:"descripcion", field:"descripcion", tipo:fieldsTipos.NUMBER, atributos:{}},
+    	                 {name:"Fecha Baja", field:"fecha", tipo:fieldsTipos.NUMBER, atributos:{}},
+    	                 {name:"disponibilidad", field:"disponibilidad", path:"disponibilidads/", tipo:fieldsTipos.DEPENDENCY, atributos:
+    	                	 [
+	    	                 	 {name:"fecha", field:"fecha", tipo:fieldsTipos.NUMBER, atributos:{}},
+	    	                     {name:"transportes", field:"transportes", tipo:fieldsTipos.DEPENDENCY, path:"transportes/", atributos:
+	    	                    	 [
+										{name:"nombre", field:"nombre", tipo:fieldsTipos.NUMBER, atributos:{}},
+										{name:"descripcion", field:"descripcion", tipo:fieldsTipos.NUMBER, atributos:{}},
+										{name:"costo", field:"costo", tipo:fieldsTipos.NUMBER, atributos:{}}
+	    	                         ]
+	    	                 	  },
+	    	                     {name:"hoteles", field:"hoteles", path:"hotels/", tipo:fieldsTipos.DEPENDENCY, atributos:
+	    	                    	 [
+		    	                     	{name:"nombre", field:"nombre", tipo:fieldsTipos.NUMBER, atributos:{}},
+		    	                        {name:"descripcion", field:"descripcion", tipo:fieldsTipos.NUMBER, atributos:{}},
+		    	                        {name:"costo", field:"costo", tipo:fieldsTipos.NUMBER, atributos:{}}
+	    	                        ]
+	    	                     }
+	    	                 ]
+    	                 }
+                         
+                     	];
+    	var aPanel = createCrud("Viajes", "viajes/", structure, document.getElementById("node"));
+    	
+    	/*
+        function updateSize(aPanel){
+        	var panels = aPanel.getChildren();
+        	var altura=0;
+        	for(var i in panels){
+        		altura += parseInt(panels[i].domNode.style.getPropertyValue('height'));
+        	}
+        	console.log("height: "+altura+"px;width:100%;");
+        	aPanel.set({style:"height: "+altura+"px;width:100%;"});
+        	aPanel.startup();
+        	aPanel.resize();
+        }
+        //updateSize(aPanel);
+        */
+    });
+	</script>
+	<div id="target-node-id">asd</div>
+	<div id="node" style="width: 100%; height: 500px"><!--  asd  --></div>
+  
 </div>

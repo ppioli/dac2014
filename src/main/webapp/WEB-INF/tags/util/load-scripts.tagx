@@ -5,12 +5,20 @@
   <spring:theme code="styleSheet" var="roo_css" />
   <spring:url value="/${roo_css}" var="roo_css_url" />
   <spring:url value="/resources/js/dojo/dojo.js" var="dojo_url" />
-  <spring:url value="/resources/js/dijit/themes/tundra/tundra.css" var="tundra_url" />
+  <spring:url value="/resources/js/dijit/themes/claro/claro.css" var="tundra_url" />
   <spring:url value="/resources/js/spring/Spring.js" var="spring_url" />
+  <spring:url value="/resources/js/dijit/dijit.js" var="dijit_url" />
   <spring:url value="/resources/js/spring/Spring-Dojo.js" var="spring_dojo_url" />
   <spring:url value="/resources/images/favicon.ico" var="favicon" />
   <spring:url value="/resources/js/imageGallery.js" var="gallery" />
+  <spring:url value="/resources/js/gridx/resources/claro/Gridx.css" var="gridCss" />
+  <spring:url value="/resources/js/gridx/resources/claro/Gridx_rtl.css" var="gridCssRtl" />
+  
+  
+  
+  
   <link rel="stylesheet" type="text/css" href="${tundra_url}" />
+  <link rel="stylesheet" href="${gridCss}" media="screen"/>
   <link rel="stylesheet" type="text/css" media="screen" href="${roo_css_url}" />
   <link rel="SHORTCUT ICON" href="${favicon}" />
 
@@ -20,13 +28,15 @@
     <c:out value="${fn:replace(plocale, '_', '-')}" default="en" />
   </c:set>
   
-  <script type="text/javascript">var djConfig = {parseOnLoad: false, isDebug: true, locale:'${fn:toLowerCase(userLocale)}'};</script>
+  <script type="text/javascript">var djConfig = {parseOnLoad: true, isDebug: true, locale:'${fn:toLowerCase(userLocale)}'};</script>
   <!-- '${fn:toLowerCase(userLocale)}' -->
   <!-- script src="${gallery}" type="text/javascript"></script>  -->
   <!--  SCRIPTS -->
-  <script src="${dojo_url}" type="text/javascript"></script> -->
+
+  <script src="${dojo_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
+  <script src="${dijit_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script> 
   <script src="${spring_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
-  <script src="${spring_dojo_url}" type="text/javascript"><!-- required for FF3 and Opera --></script>
+  <script src="${spring_dojo_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>
   <script language="JavaScript" type="text/javascript">dojo.require("dojo.parser");</script>
 
 </jsp:root>

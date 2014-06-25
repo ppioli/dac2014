@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dac2014_json_model_Actividad" object="${actividad}" path="/actividads" z="omL9RQ1EboMuRALKauowi4zAeYk=">
+        <field:display date="true" dateTimePattern="${actividad_inicio_date_format}" field="inicio" id="s_com_dac2014_json_model_Actividad_inicio" object="${actividad}" z="9hDNDIyKdFq3mbtHavLF0YhO3nM="/>
+        <field:display date="true" dateTimePattern="${actividad_fin_date_format}" field="fin" id="s_com_dac2014_json_model_Actividad_fin" object="${actividad}" z="YBL9TWVPDYduZTf3cnf++gbXUHw="/>
+    </page:show>
+</div>

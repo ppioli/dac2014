@@ -4,7 +4,13 @@
 package com.dac2014.json.controller;
 
 import com.dac2014.json.controller.ApplicationConversionServiceFactoryBean;
+import com.dac2014.json.model.Actividad;
+import com.dac2014.json.model.Disponibilidad;
+import com.dac2014.json.model.Hotel;
 import com.dac2014.json.model.Imagen;
+import com.dac2014.json.model.Transporte;
+import com.dac2014.json.model.Usuario;
+import com.dac2014.json.model.Viaje;
 import org.springframework.beans.factory.annotation.Configurable;
 import org.springframework.core.convert.converter.Converter;
 import org.springframework.format.FormatterRegistry;
@@ -12,6 +18,78 @@ import org.springframework.format.FormatterRegistry;
 privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService {
     
     declare @type: ApplicationConversionServiceFactoryBean: @Configurable;
+    
+    public Converter<Actividad, String> ApplicationConversionServiceFactoryBean.getActividadToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Actividad, java.lang.String>() {
+            public String convert(Actividad actividad) {
+                return new StringBuilder().append(actividad.getInicio()).append(' ').append(actividad.getFin()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Actividad> ApplicationConversionServiceFactoryBean.getIdToActividadConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dac2014.json.model.Actividad>() {
+            public com.dac2014.json.model.Actividad convert(java.lang.Long id) {
+                return Actividad.findActividad(id);
+            }
+        };
+    }
+    
+    public Converter<String, Actividad> ApplicationConversionServiceFactoryBean.getStringToActividadConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dac2014.json.model.Actividad>() {
+            public com.dac2014.json.model.Actividad convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Actividad.class);
+            }
+        };
+    }
+    
+    public Converter<Disponibilidad, String> ApplicationConversionServiceFactoryBean.getDisponibilidadToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Disponibilidad, java.lang.String>() {
+            public String convert(Disponibilidad disponibilidad) {
+                return new StringBuilder().append(disponibilidad.getFechaSalida()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Disponibilidad> ApplicationConversionServiceFactoryBean.getIdToDisponibilidadConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dac2014.json.model.Disponibilidad>() {
+            public com.dac2014.json.model.Disponibilidad convert(java.lang.Long id) {
+                return Disponibilidad.findDisponibilidad(id);
+            }
+        };
+    }
+    
+    public Converter<String, Disponibilidad> ApplicationConversionServiceFactoryBean.getStringToDisponibilidadConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dac2014.json.model.Disponibilidad>() {
+            public com.dac2014.json.model.Disponibilidad convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Disponibilidad.class);
+            }
+        };
+    }
+    
+    public Converter<Hotel, String> ApplicationConversionServiceFactoryBean.getHotelToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Hotel, java.lang.String>() {
+            public String convert(Hotel hotel) {
+                return new StringBuilder().append(hotel.getNombre()).append(' ').append(hotel.getDescripcion()).append(' ').append(hotel.getCosto()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Hotel> ApplicationConversionServiceFactoryBean.getIdToHotelConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dac2014.json.model.Hotel>() {
+            public com.dac2014.json.model.Hotel convert(java.lang.Long id) {
+                return Hotel.findHotel(id);
+            }
+        };
+    }
+    
+    public Converter<String, Hotel> ApplicationConversionServiceFactoryBean.getStringToHotelConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dac2014.json.model.Hotel>() {
+            public com.dac2014.json.model.Hotel convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Hotel.class);
+            }
+        };
+    }
     
     public Converter<Imagen, String> ApplicationConversionServiceFactoryBean.getImagenToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Imagen, java.lang.String>() {
@@ -37,10 +115,100 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
         };
     }
     
+    public Converter<Transporte, String> ApplicationConversionServiceFactoryBean.getTransporteToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Transporte, java.lang.String>() {
+            public String convert(Transporte transporte) {
+                return new StringBuilder().append(transporte.getNombre()).append(' ').append(transporte.getDescripcion()).append(' ').append(transporte.getCosto()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Transporte> ApplicationConversionServiceFactoryBean.getIdToTransporteConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dac2014.json.model.Transporte>() {
+            public com.dac2014.json.model.Transporte convert(java.lang.Long id) {
+                return Transporte.findTransporte(id);
+            }
+        };
+    }
+    
+    public Converter<String, Transporte> ApplicationConversionServiceFactoryBean.getStringToTransporteConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dac2014.json.model.Transporte>() {
+            public com.dac2014.json.model.Transporte convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Transporte.class);
+            }
+        };
+    }
+    
+    public Converter<Usuario, String> ApplicationConversionServiceFactoryBean.getUsuarioToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Usuario, java.lang.String>() {
+            public String convert(Usuario usuario) {
+                return new StringBuilder().append(usuario.getNombre()).append(' ').append(usuario.getApellido()).append(' ').append(usuario.getEmail()).append(' ').append(usuario.getFechaNac()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Usuario> ApplicationConversionServiceFactoryBean.getIdToUsuarioConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dac2014.json.model.Usuario>() {
+            public com.dac2014.json.model.Usuario convert(java.lang.Long id) {
+                return Usuario.findUsuario(id);
+            }
+        };
+    }
+    
+    public Converter<String, Usuario> ApplicationConversionServiceFactoryBean.getStringToUsuarioConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dac2014.json.model.Usuario>() {
+            public com.dac2014.json.model.Usuario convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Usuario.class);
+            }
+        };
+    }
+    
+    public Converter<Viaje, String> ApplicationConversionServiceFactoryBean.getViajeToStringConverter() {
+        return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Viaje, java.lang.String>() {
+            public String convert(Viaje viaje) {
+                return new StringBuilder().append(viaje.getNombre()).append(' ').append(viaje.getDescripcion()).append(' ').append(viaje.getFechaVencimiento()).toString();
+            }
+        };
+    }
+    
+    public Converter<Long, Viaje> ApplicationConversionServiceFactoryBean.getIdToViajeConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.Long, com.dac2014.json.model.Viaje>() {
+            public com.dac2014.json.model.Viaje convert(java.lang.Long id) {
+                return Viaje.findViaje(id);
+            }
+        };
+    }
+    
+    public Converter<String, Viaje> ApplicationConversionServiceFactoryBean.getStringToViajeConverter() {
+        return new org.springframework.core.convert.converter.Converter<java.lang.String, com.dac2014.json.model.Viaje>() {
+            public com.dac2014.json.model.Viaje convert(String id) {
+                return getObject().convert(getObject().convert(id, Long.class), Viaje.class);
+            }
+        };
+    }
+    
     public void ApplicationConversionServiceFactoryBean.installLabelConverters(FormatterRegistry registry) {
+        registry.addConverter(getActividadToStringConverter());
+        registry.addConverter(getIdToActividadConverter());
+        registry.addConverter(getStringToActividadConverter());
+        registry.addConverter(getDisponibilidadToStringConverter());
+        registry.addConverter(getIdToDisponibilidadConverter());
+        registry.addConverter(getStringToDisponibilidadConverter());
+        registry.addConverter(getHotelToStringConverter());
+        registry.addConverter(getIdToHotelConverter());
+        registry.addConverter(getStringToHotelConverter());
         registry.addConverter(getImagenToStringConverter());
         registry.addConverter(getIdToImagenConverter());
         registry.addConverter(getStringToImagenConverter());
+        registry.addConverter(getTransporteToStringConverter());
+        registry.addConverter(getIdToTransporteConverter());
+        registry.addConverter(getStringToTransporteConverter());
+        registry.addConverter(getUsuarioToStringConverter());
+        registry.addConverter(getIdToUsuarioConverter());
+        registry.addConverter(getStringToUsuarioConverter());
+        registry.addConverter(getViajeToStringConverter());
+        registry.addConverter(getIdToViajeConverter());
+        registry.addConverter(getStringToViajeConverter());
     }
     
     public void ApplicationConversionServiceFactoryBean.afterPropertiesSet() {

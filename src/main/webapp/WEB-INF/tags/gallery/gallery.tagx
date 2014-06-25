@@ -1,0 +1,31 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+	<jsp:output omit-xml-declaration="yes"/>
+	
+	<jsp:directive.attribute name="title" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)"/>
+	<jsp:directive.attribute name="selected" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
+	
+	
+	<spring:url value="/resources/js/gallery.js" var="gallery_url"/>
+	<spring:url value="/resources/js/dojox/image/resources/Lightbox.css" var="lb_style"/>
+	
+	
+	<link rel="stylesheet" type="text/css" href="${lb_style}" />
+	
+	<div>
+		<div data-dojo-type="dijit/Dialog" id="galeria" title="${title}" style="display: none">
+			<div id="galeria_content" data-dojo-type="dijit/layout/BorderContainer" style="width: 800px; height: 500px">
+			    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'top'">Buscardor:</div>
+			    <div data-dojo-type="dijit/layout/ContentPane" data-dojo-props="region:'leading'">Leading pane</div>
+			    <div  data-dojo-type="dijit/layout/ContentPane"  data-dojo-props="region:'center'">
+					<table id="imagenes">
+					   	imagenes
+					</table>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	<script src="${gallery_url}" type="text/javascript"><!-- /required for FF3 and Opera --></script>	
+	
+</jsp:root>

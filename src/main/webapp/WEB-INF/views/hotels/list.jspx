@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <!--
+    <page:list id="pl_com_dac2014_json_model_Hotel" items="${hotels}" z="uUjgAKtQDEe0p6I7SD7gZ/RtSjU=">
+        <table:table data="${hotels}" id="l_com_dac2014_json_model_Hotel" path="/hotels" z="HUkLKLYr/r57SmWMGZsKi5q+ERM=">
+            <table:column id="c_com_dac2014_json_model_Hotel_nombre" property="nombre" z="J7j57Qf2NTyTthdc634a1x96JMU="/>
+            <table:column id="c_com_dac2014_json_model_Hotel_descripcion" property="descripcion" z="JE8C4Darpm9v7SZWRMpZnjO3bOA="/>
+            <table:column id="c_com_dac2014_json_model_Hotel_costo" property="costo" z="7BMGqKVWjzogBfaeIMbxYNWfIL4="/>
+        </table:table>
+    </page:list>
+    -->
+    <page:grid id="hotel" modelAttribute="hotel">
+	    
+        	<th field="nombre" width="33%">Nombre</th>
+            <th field="descripcion" width="33%">Descripcion</th>
+            <th field="costo" width="33%">Costo</th>
+        
+    </page:grid>
+</div>

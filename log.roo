@@ -29,3 +29,53 @@ quit
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-05-29 20:39:42
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-05-29 20:41:39
 perform eclipse
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-05-30 17:38:43
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-05-31 23:08:34
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-04 20:56:19
+entity jpa --class ~.model.Viaje 
+entity jpa --class ~.model.Actividad
+entity jpa --class ~.model.Hotel
+entity jpa --class ~.model.Transporte
+entity jpa --class ~.model.Usuario
+focus --class ~.model.Viaje
+field set --fieldName actividades --type ~.model.Actividad --cardinality ONE_TO_MANY 
+entity jpa --class ~.model.Disponibilidad
+focus --class ~.model.Viaje
+field set --fieldName disponibilidades --type ~.model.Disponibilidad --cardinality ONE_TO_MANY 
+field date --fieldName fechaVencimiento --type java.util.Date
+focus --class ~.model.Disponibilidad
+field set --fieldName hoteles --type ~.model.Hotel --cardinality ONE_TO_MANY 
+field set --fieldName transportes --type ~.model.Transporte --cardinality ONE_TO_MANY 
+field date --fieldName fechaSalida --type java.util.Date
+focus --class ~.model.Viaje
+field set --fieldName imagenes --type ~.model.Imagen
+focus --class ~.model.Hotel
+// [failed] field set --fieldName imagenes --type model.Imagen --cardinality ONE_TO_MANY
+field set --fieldName imagenes --type ~.model.Imagen --cardinality ONE_TO_MANY
+focus --class ~.model.Actividad
+field set --fieldName imagenes --type ~.model.Imagen --cardinality ONE_TO_MANY
+field date --fieldName inicio --type java.util.Date
+field date --fieldName fin --type java.util.Date
+web mvc all --package com.dac2014.json.controller
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-05 01:43:59
+web mvc json all
+web mvc json add --jsonObject ~.model.Hotel --class ~.services.Hotel
+web mvc json add --jsonObject ~.model.Hotel --class ~.services.HotelREST
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-06-05 04:10:54
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-05 04:11:02
+json all
+web mvc json all
+security setup
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-06-05 06:16:52
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-05 06:20:53
+perform eclipse
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-05 06:24:59
+perform eclipse
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-06-05 06:31:07
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-05 20:15:01
+quit
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-06-06 01:55:07

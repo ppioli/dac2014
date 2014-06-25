@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dac2014_json_model_Transporte" items="${transportes}" z="Fog+4iOKYqhAxmS6rJXuMyJ7o+g=">
+        <table:table data="${transportes}" id="l_com_dac2014_json_model_Transporte" path="/transportes" z="yVSIXLwF7LFoyQaozNES45lh0c4=">
+            <table:column id="c_com_dac2014_json_model_Transporte_nombre" property="nombre" z="YW2M0upL17zdFFqds+uu+yX6un8="/>
+            <table:column id="c_com_dac2014_json_model_Transporte_descripcion" property="descripcion" z="VpAjj/rgCRpwT2aI9mV9C52PGLI="/>
+            <table:column id="c_com_dac2014_json_model_Transporte_costo" property="costo" z="q8T7mRr2GF3CsD6lpIfM940XwaU="/>
+        </table:table>
+    </page:list>
+</div>

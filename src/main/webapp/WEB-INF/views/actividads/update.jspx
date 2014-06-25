@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_dac2014_json_model_Actividad" modelAttribute="actividad" path="/actividads" versionField="Version" z="HjnJ4lBd/QUP9D+zNW8BASowkrU=">
+        <field:simple field="imagenes" id="c_com_dac2014_json_model_Actividad_imagenes" messageCode="entity_reference_not_managed" messageCodeAttribute="Imagen" z="CAYrvRoi0jbJg2KY4nITWkLytGo="/>
+        <field:datetime dateTimePattern="${actividad_inicio_date_format}" field="inicio" id="c_com_dac2014_json_model_Actividad_inicio" z="tCXQaDRmD1JgHwDjNGkBSqZ2GXg="/>
+        <field:datetime dateTimePattern="${actividad_fin_date_format}" field="fin" id="c_com_dac2014_json_model_Actividad_fin" z="d5SurRKBU5XN9/2oEDd5comUgfs="/>
+    </form:update>
+</div>

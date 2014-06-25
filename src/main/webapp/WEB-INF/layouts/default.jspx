@@ -1,9 +1,10 @@
-<html xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:tiles="http://tiles.apache.org/tags-tiles" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" >  
+<html xmlns:jsp="http://java.sun.com/JSP/Page"  xmlns:gallery="urn:jsptagdir:/WEB-INF/tags/gallery" xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:tiles="http://tiles.apache.org/tags-tiles" xmlns:spring="http://www.springframework.org/tags" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" >  
 	
 	<jsp:output doctype-root-element="HTML" doctype-system="about:legacy-compat" />
 	
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />  
-	<jsp:directive.page pageEncoding="UTF-8" /> 
+	<jsp:directive.page pageEncoding="UTF-8" />
+	
 			
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
@@ -15,14 +16,15 @@
 		<title><spring:message code="welcome_h3" arguments="${app_name}" /></title>
 	</head>
 	
-  	<body class="tundra spring">
+  	<body class="claro">
    		<div id="wrapper">
-		    <tiles:insertAttribute name="header" ignore="true" />
-		    <tiles:insertAttribute name="menu" ignore="true" />   
+   		<gallery:gallery title="Galeria de imagenes"><!-- asd --></gallery:gallery>
+		    <tiles:insertAttribute name="header" ignore="true" />  
 		    <div id="main">
 	    		<tiles:insertAttribute name="body"/> 
 		    	<tiles:insertAttribute name="footer" ignore="true"/>
 		    </div>
 		</div>
+		
 	</body>
 </html>

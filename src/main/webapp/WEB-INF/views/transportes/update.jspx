@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:form="urn:jsptagdir:/WEB-INF/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <form:update id="fu_com_dac2014_json_model_Transporte" modelAttribute="transporte" path="/transportes" versionField="Version" z="gO/ykl7Z58ynMKfW0a++t7+8AUc=">
+        <field:input field="nombre" id="c_com_dac2014_json_model_Transporte_nombre" z="q/xyoGUYcH+Y5y101O1CxEFRG/A="/>
+        <field:input field="descripcion" id="c_com_dac2014_json_model_Transporte_descripcion" z="KY+yp9Dj8Q9xIXV4NRCaBQZLsnc="/>
+        <field:input field="costo" id="c_com_dac2014_json_model_Transporte_costo" z="yf1Xenw8yhTzF38zUEewIaHC7Sc="/>
+    </form:update>
+</div>

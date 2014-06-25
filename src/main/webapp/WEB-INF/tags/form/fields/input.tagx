@@ -19,9 +19,13 @@
   <jsp:directive.attribute name="type" type="java.lang.String" required="false" rtexprvalue="true" description="Set field type (default 'text', or 'password')" />
   <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
   <jsp:directive.attribute name="z" type="java.lang.String" required="false" description="Used for checking if element has been modified (to recalculate simply provide empty string value)" />
+  <jsp:directive.attribute name="numeric" type="java.lang.Boolean" required="false" rtexprvalue="true" description="for stuff" />
+  
   
   <c:if test="${empty render or render}">
-  
+  	<c:if test="${empty numeric}">
+  		<c:set value="false" var="numeric" />
+  	</c:if>
     <c:if test="${empty type}">
       <c:set value="text" var="type" />
     </c:if>
@@ -108,10 +112,33 @@
       <c:if test="${!empty validationRegex}">
         <c:set var="sec_validation_regex" value="regExp : '${validationRegex}', " />
       </c:if>
-      
       <script type="text/javascript">
-        Spring.addDecoration(new Spring.ElementDecoration({elementId : '_${sec_field}_id', widgetType : 'dijit.form.ValidationTextBox', widgetAttrs : {promptMessage: '${sec_field_validation}', invalidMessage: '${sec_field_invalid}', required : ${required}, ${sec_validation_regex} missingMessage : '${sec_field_required}' }})); 
-      </script>
+        if(!${numeric}){
+        	
+        	Spring.addDecoration(new Spring.ElementDecoration(
+	        		{elementId : '_${sec_field}_id', widgetType : 'dijit.form.ValidationTextBox', 
+	        		 widgetAttrs : {${sec_validation_regex}
+	        			 			promptMessage: '${sec_field_validation}', 
+	        						invalidMessage: '${sec_field_invalid}', 
+	        						missingMessage: "Este campo no debe estar vacio",
+	        						required: ${required}
+	        		 				}, 
+	        		 constraints: {}
+	        		 }));
+        }else{
+	        Spring.addDecoration(new Spring.ElementDecoration(
+	        		{elementId : '_${sec_field}_id', widgetType : 'dijit.form.NumberTextBox', 
+	        		 widgetAttrs : {
+	        			 			promptMessage: '${sec_field_validation}', 
+	        						invalidMessage: '${sec_field_invalid}', 
+	        						missingMessage: "Este campo no debe estar vacio",
+	        						required: ${required}
+	        		 				}, 
+	        		 constraints: {}
+	        		 				//min:-20000,max:20000,places:0
+	        		 }));
+        }
+       </script>
     </div>
     <br />
   </c:if>

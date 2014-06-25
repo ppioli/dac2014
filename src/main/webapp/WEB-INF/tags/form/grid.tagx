@@ -1,0 +1,67 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  <jsp:directive.attribute name="id" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
+  <jsp:directive.attribute name="modelAttribute" type="java.lang.String" required="true" rtexprvalue="true" description="The identifier for this tag (do not change!)" />
+  <jsp:directive.attribute name="render" type="java.lang.Boolean" required="false" rtexprvalue="true" description="Indicate if the contents of this tag and all enclosed tags should be rendered (default 'true')" />
+  	<!--  
+  	<script>
+       dojo.require("dojo.store.JsonRest");
+       dojo.require("dojo.store.Memory");
+       dojo.require("dojo.store.Cache");
+       dojo.require("dojox.grid.DataGrid");
+       dojo.require("dojo.data.ObjectStore");
+       dojo.require('dijit.form.Button');
+       var grid;
+       dojo.ready(function(){
+    	   grid = dijit.byId('myDataGrid');
+       	
+           myStore = dojo.store.Cache(dojo.store.JsonRest({target:"hotels/"}), dojo.store.Memory());
+           dataStore = dojo.data.ObjectStore({objectStore: myStore}),
+           grid.setStore(dataStore);
+       });
+   	</script>
+   	<script>
+   	 dojo.require("dojo.store.JsonRest");
+     dojo.require("dojo.store.Memory");
+     dojo.require("dojo.store.Cache");
+     dojo.require("dojox.grid.DataGrid");
+     dojo.require("dojo.data.ObjectStore");
+     dojo.require('dijit.form.Button');
+     dojo.ready(function(){
+     	function formatter(){
+             var w = new Button({
+                 label: "Click me!",
+                 onClick: function() {
+                     alert("Thanks for all the fish.  ");
+                 }
+             });
+             w._destroyOnRemove=true;
+             return w;
+         }
+         myStore = dojo.store.Cache(dojo.store.JsonRest({target:"hotels/"}), dojo.store.Memory());
+         grid = new dojox.grid.DataGrid({
+         	autoWidth: true,
+            store: dataStore = dojo.data.ObjectStore({objectStore: myStore})
+             
+         }, "target-node-id"); // make sure you have a target HTML element with this id
+         grid.startup();
+         dojo.query("#nuevo").onclick(function(){
+             dataStore.save();
+         });
+     });
+    </script>
+   	 -->
+   	<table id="myDataGrid" dojoType="dojox.grid.DataGrid" style="width:400px;">
+   	<thead>
+        <tr>
+        <jsp:doBody />
+    	</tr>    
+    </thead>
+        
+    </table>
+    
+    <div id="${modelAttribute}_node"></div>
+    <button id="${modelAttribute}_nuevo">Nuevo</button>
+    
+</jsp:root>

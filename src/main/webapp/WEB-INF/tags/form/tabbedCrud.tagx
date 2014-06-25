@@ -1,0 +1,188 @@
+<jsp:root xmlns:page="urn:jsptagdir:/WEB-INF/tags/form"
+	xmlns:tiles="http://tiles.apache.org/tags-tiles"
+	xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+	xmlns:util="urn:jsptagdir:/WEB-INF/tags/util"
+	xmlns:form="http://www.springframework.org/tags/form"
+	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:spring="http://www.springframework.org/tags" version="2.0">
+	<jsp:output omit-xml-declaration="yes" />
+
+	<spring:url value="/resources/js/gallery.js" var="tabbed_pane" />
+	<jsp:directive.attribute name="id" type="java.lang.String"
+		required="true" rtexprvalue="true"
+		description="The identifier for this tag (do not change!)" />
+	<jsp:directive.attribute name="modelAttribute" type="java.lang.String"
+		required="true" rtexprvalue="true"
+		description="The name of the model attribute for form binding" />
+	<jsp:directive.attribute name="path" type="java.lang.String"
+		required="true" rtexprvalue="true"
+		description="The name of the model attribute for form binding" />
+	<!--  <script src="${tabbed_pane}" type="text/javascript">asd</script>-->
+	<script type="text/javascript">
+  	/*
+  	var obj = {
+  		"add": fun(){
+  			
+  		},
+  		"asd"
+  	};
+  	obj[ent]();
+  	send(obj);
+  	*/
+  	var ${modelAttribute}AddTab;
+  	var ${modelAttribute}RemoveTab;
+  	var ${modelAttribute}TabbedPane;
+  	var ${modelAttribute}tabCount;
+  	var ${modelAttribute}Edit;
+  	require(["dijit/layout/TabContainer", 
+  	         "dijit/layout/ContentPane", 
+  	         "dojo/ready"], 
+  	function(TabContainer, ContentPane, ready){
+  		
+  	    ready(function(){
+  	    	console.log("tabbedPane Loaded");
+  	    	${modelAttribute}tabCount = 0;
+  	    	${modelAttribute}TabbedPane = dijit.byId("${modelAttribute}_tabbedPane");
+  	  	    var createPane = dijit.byId("${modelAttribute}_tabCreate");
+	  	  	  ${modelAttribute}AddTab = function(){
+	  	  		  var temp = dojo.clone(createPane);
+	  	  		  temp.id= "${modelAttribute}_tab_"+${modelAttribute}tabCount;
+	  	  		  temp.set({closable:true});
+	  	  		${modelAttribute}tabCount++;
+	  	  		${modelAttribute}TabbedPane.addChild(temp);
+	  	  		return temp.id;
+	  	  	  };
+	  	  	  ${modelAttribute}RemoveTab = function(tabToRemove){
+	  	  		${modelAttribute}TabbedPane.removeChild(dijit.byId("${modelAttribute}_"+tabToRemove));
+	  	  	  };
+		  	  	${modelAttribute}Edit = function(id){
+		  			${modelAttribute}store.get(id).then(
+		  			      function(data){
+		  			    	console.log(data);
+		  			    	${modelAttribute}AddTab();
+		  			    	dijit.byId('myForm').attr('value', myJsonObject); 
+		  			      },
+		  			      function(error){
+		  			    	  console.log(error);
+		  			    	  
+		  			      });
+		  	  	};
+	  	  
+	  	  	${modelAttribute}RemoveTab("tabCreate");
+  	    });
+  	    
+
+    	
+  	    
+  	});
+	var ${modelAttribute}store;
+	var ${modelAttribute}confirmDialog;
+	
+	require(["dojo/dom-form",
+	         "dojo/store/JsonRest",
+	         "dijit/Dialog"], 
+	function(domForm, JSONRest, Dialog){
+		var ftj = domForm;
+		${modelAttribute}confirmDialog = new Dialog({
+	        title: "Exito",
+	        content: "Contenido guardado con exito",
+	        style: "width: 300px"
+	    });
+		//var userMemoryStore = new Memory();
+		${modelAttribute}store = new JSONRest({
+			   target: "${path}",
+			   accepts: "application/json"
+		});
+		//storeHotel = new Cache(hotelREST, userMemoryStore);
+	});
+	
+	function ${modelAttribute}jason(string){
+		
+		var jason = dojo.formToObject(string);
+		${modelAttribute}store.add(jason).then(
+		      function(data){
+		    	  ${modelAttribute}confirmDialog.set({content:"Exito!"});
+		    	  ${modelAttribute}confirmDialog.show();
+		      },
+		      function(error){
+		    	  console.log(error)
+		    	  ${modelAttribute}confirmDialog.set({content:"Fracaso!"});
+		    	  ${modelAttribute}confirmDialog.show();
+		      }
+		      
+	  	);
+		
+		return false;
+	};
+       dojo.require("dojo.store.JsonRest");
+       dojo.require("dojo.store.Memory");
+       dojo.require("dojo.store.Cache");
+       dojo.require("dojox.grid.DataGrid");
+       dojo.require("dojo.data.ObjectStore");
+       dojo.require('dijit.form.Button');
+       var grid;
+       dojo.ready(function(){
+    	   grid = dijit.byId('myDataGrid');
+           myStore = dojo.store.Cache(dojo.store.JsonRest({target:"hotels/"}), dojo.store.Memory());
+           dataStore = dojo.data.ObjectStore({objectStore: myStore}),
+           grid.setStore(dataStore);
+       });
+   	 dojo.require("dojo.store.JsonRest");
+     dojo.require("dojo.store.Memory");
+     dojo.require("dojo.store.Cache");
+     dojo.require("dojox.grid.DataGrid");
+     dojo.require("dojo.data.ObjectStore");
+     dojo.require('dijit.form.Button');
+     dojo.ready(function(){
+     	function formatter(){
+             var w = new Button({
+                 label: "Click me!",
+                 onClick: function() {
+                     alert("Thanks for all the fish.  ");
+                 }
+             });
+             w._destroyOnRemove=true;
+             return w;
+         }
+         myStore = dojo.store.Cache(dojo.store.JsonRest({target:"hotels/"}), dojo.store.Memory());
+         grid = new dojox.grid.DataGrid({
+         	autoWidth: true,
+            store: dataStore = dojo.data.ObjectStore({objectStore: myStore})
+             
+         }, "target-node-id"); // make sure you have a target HTML element with this id
+         grid.startup();
+         dojo.query("#nuevo").onclick(function(){
+             dataStore.save();
+         });
+     });
+  	</script>
+	<div style="width: 100%; height: 300px">
+		<div data-dojo-type="dijit/layout/TabContainer"
+			id="${modelAttribute}_tabbedPane" style="width: 100%; height: 100%;">
+			<div data-dojo-type="dijit/layout/ContentPane"
+				id="${modelAttribute}_tabCreate" title="My first tab"
+				data-dojo-props="selected:true">
+				<form:create id="fc_com_dac2014_json_model_Hotel" jason="true" modelAttribute="hotel" path="hotels/" render="${empty dependencies}" z="user-managed">
+			        <field:input field="nombre" id="c_com_dac2014_json_model_Hotel_nombre" required="true" z="+TZ8t7ajktX/QCBlfSrW3HXbRWo="/>
+			        <field:input field="descripcion" id="c_com_dac2014_json_model_Hotel_descripcion" z="CctwFOEUTYsR/ZSlNsTmMytaZHg="/>
+			        <field:input numeric="true" field="costo" id="c_com_dac2014_json_model_Hotel_costo" z="user-managed"/>
+			        <field:simple field="imagenes" id="c_com_dac2014_json_model_Hotel_imagenes" messageCode="entity_reference_not_managed" messageCodeAttribute="Imagen" z="rckn/taK5wuz4Ct3olnRvN4mn2w="/>
+			    </form:create>
+			</div>
+			<div data-dojo-type="dijit/layout/ContentPane"
+				id="${modelAttribute}_tabList" title="My second tab">
+				<page:grid id="hotel" modelAttribute="hotel">
+
+					<th field="nombre" width="33%">Nombre</th>
+					<th field="descripcion" width="33%">Descripcion</th>
+					<th field="costo" width="33%">Costo</th>
+
+				</page:grid>
+			</div>
+		</div>
+	</div>
+
+
+</jsp:root>

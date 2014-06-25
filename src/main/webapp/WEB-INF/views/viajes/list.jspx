@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:list id="pl_com_dac2014_json_model_Viaje" items="${viajes}" z="rNIu1U84c0oFuUJj6bdQf5CGeYw=">
+        <table:table data="${viajes}" id="l_com_dac2014_json_model_Viaje" path="/viajes" z="PHtERpAXMv0F0ZTeQvLCh3XS3yY=">
+            <table:column id="c_com_dac2014_json_model_Viaje_nombre" property="nombre" z="V22OSavc+54oG0zVlc7RBzgUZks="/>
+            <table:column id="c_com_dac2014_json_model_Viaje_descripcion" property="descripcion" z="T4lQtJ7K6s+iLJWxUK+UZvd8L/w="/>
+            <table:column date="true" dateTimePattern="${viaje_fechavencimiento_date_format}" id="c_com_dac2014_json_model_Viaje_fechaVencimiento" property="fechaVencimiento" z="iEKU17PvsSlgFTSskoxlDiN4BH4="/>
+            <table:column id="c_com_dac2014_json_model_Viaje_imagenes" property="imagenes" z="EXx3IuHB0CPZoRTOc/WVkJBMVoA="/>
+        </table:table>
+    </page:list>
+</div>

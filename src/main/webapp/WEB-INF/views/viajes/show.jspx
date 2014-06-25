@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    <page:show id="ps_com_dac2014_json_model_Viaje" object="${viaje}" path="/viajes" z="cD9YT0oKkG1DJRJsW8wieON789Y=">
+        <field:display field="nombre" id="s_com_dac2014_json_model_Viaje_nombre" object="${viaje}" z="fyziF+4llTxwTLHMm1Ya5Ct645k="/>
+        <field:display field="descripcion" id="s_com_dac2014_json_model_Viaje_descripcion" object="${viaje}" z="WzutzvSr0XusgV7d74Rrkc63NgE="/>
+        <field:display date="true" dateTimePattern="${viaje_fechavencimiento_date_format}" field="fechaVencimiento" id="s_com_dac2014_json_model_Viaje_fechaVencimiento" object="${viaje}" z="ZqvsPG4Ty1c/bEMGh0kL4lplICc="/>
+        <field:display field="imagenes" id="s_com_dac2014_json_model_Viaje_imagenes" object="${viaje}" z="ORoqFGnW7engCvcIoMXrj0iOvXU="/>
+    </page:show>
+</div>

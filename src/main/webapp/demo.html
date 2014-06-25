@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>MVC</title>
+        <link rel="stylesheet" href="resources/styles/style.css" media="screen">
+        <link rel="stylesheet" href="resources/styles/demo.css" media="screen">
+        
+        <link rel="stylesheet" href="resources/js/dojox/grid/resources/tundraGrid.css" media="screen"/>
+        <!-- load dojo and provide config via data attribute -->
+        <script src="http://ajax.googleapis.com/ajax/libs/dojo/1.6.0/dojo/dojo.xd.js"
+                data-dojo-config="isDebug: true,parseOnLoad: true">
+        </script>
+  		
+        
+        <script>
+            dojo.require("dojo.store.JsonRest");
+            dojo.require("dojo.store.Memory");
+            dojo.require("dojo.store.Cache");
+            dojo.require("dojox.grid.DataGrid");
+            dojo.require("dojo.data.ObjectStore");
+            dojo.require('dijit.form.Button');
+            dojo.ready(function(){
+            	function formatter(){
+                    var w = new Button({
+                        label: "Click me!",
+                        onClick: function() {
+                            alert("Thanks for all the fish.  ");
+                        }
+                    });
+                    w._destroyOnRemove=true;
+                    return w;
+                }
+                myStore = dojo.store.Cache(dojo.store.JsonRest({
+                	target:"hotels/"}), dojo.store.Memory());
+                grid = new dojox.grid.DataGrid({
+                    store: dataStore = dojo.data.ObjectStore({objectStore: myStore}),
+                    structure: [
+                                {name:"nombre", field:"nombre", width: "200px"},
+                                {name:"descripcion", field:"descripcion", width: "200px"},
+                                {name:"costo", field:"costo", width: "200px"}
+                            ]
+                }, "target-node-id"); // make sure you have a target HTML element with this id
+                grid.startup();
+                dojo.query("#nuevo").onclick(function(){
+                    dataStore.save();
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <h1>Demo:  @MVC</h1>
+        <div id="target-node-id"></div>
+        <button id="nuevo">Nuevo</button>
+    </body>
+</html>

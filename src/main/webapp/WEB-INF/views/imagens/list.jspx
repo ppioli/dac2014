@@ -13,8 +13,9 @@
     </page:list>
 	<script>
 		console.log("holas");
+		var store;
 		require(["dojo/store/JsonRest"], function(JsonRest){
-			  var store = new JsonRest({
+			  store = new JsonRest({
 			    target: "/json/json/imagens/",
 			    accepts: "application/json"
 			  });
@@ -23,6 +24,13 @@
 			  store.get(1).then(function(item){
 			    console.log(item);
 			  });
+			  
+			// Define the attribute names used to access the items in the data store
+			  
+
+			  // Define the request, with no query, and a count of 20, so 20 items will be
+			  // requested with each request
+			 
 				/*
 			  // Query for objects with options
 			  store.query("foo=bar", {
@@ -46,6 +54,26 @@
 			  store.remove(3);
 			  */
 			});
+		var itemNameMap = {imageThumbAttr: "thumb", imageLargeAttr: "large"};
+		var request = {query: {}, count: 20};
+		require(["dijit/registry"], function(registry){
+//		    document.getElemenetById("gallery").setDataStore(store, request, itemNameMap);
+		});
+		var myDialog;
+		require(["dijit/Dialog", "dojo/domReady!"], function(Dialog){
+		    myDialog = new Dialog({
+		        title: "My Dialog",
+		        content: "Test content.",
+		        style: "width: 300px"
+		    });
+		});
+		
+
+		
 		
 	</script>
+	<BUTTON id="clari" onClick="store.get(1).then(function(item){document.getElementById('dasd').innerHTML=item.ruta})">Click Me</BUTTON>
+	<div id="dasd">dasdasd</div>
+	<div id="gallery" data-dojo-type="dojox.image.Gallery"></div>
+	<button onclick="myDialog.show();">show</button>
 </div>

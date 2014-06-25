@@ -5,7 +5,34 @@
     <menu:menu id="_menu" z="nZaf43BjUg1iM0v70HJVEsXDopc=">
         <menu:category id="c_imagen" z="QIjbBVSQvuxBhPJHknvvzRzFA6E=">
             <menu:item id="i_imagen_new" messageCode="global_menu_new" url="/imagens?form" z="lQXPJh7fCVjt7m0ATFmQ5agf5Kg="/>
-            <menu:item id="i_imagen_list" messageCode="global_menu_list" url="/imagens?page=1&amp;size=${empty param.size ? 10 : param.size}" z="9P7+xuYiKaxcnNhBYQT8ZqHUlE0="/>
+            <menu:item id="i_imagen_list" messageCode="global_menu_list" render="false" url="/imagens?page=1&amp;size=${empty param.size ? 10 : param.size}" z="user-managed"/>
+            <li>
+                <a href="#" id="buttonThree" onClick="startSelection();return false;">Galeria</a>
+            </li>
+        </menu:category>
+        <menu:category id="c_disponibilidad" z="3nRU24Fem1hogtSTD7MZW5XJJCg=">
+            <menu:item id="i_disponibilidad_new" messageCode="global_menu_new" url="/disponibilidads?form" z="IaNOv7ACndBBIDiNzyK/c2oPJLI="/>
+            <menu:item id="i_disponibilidad_list" messageCode="global_menu_list" url="/disponibilidads?page=1&amp;size=${empty param.size ? 10 : param.size}" z="aIqQvHAQw01UBo1JAdZo9TAjXuE="/>
+        </menu:category>
+        <menu:category id="c_actividad" z="loMe0s8Vrpmb/G7jNdtQAxILBYI=">
+            <menu:item id="i_actividad_new" messageCode="global_menu_new" url="/actividads?form" z="KcAN2krRHO/aKJRRKP6ah2OucpM="/>
+            <menu:item id="i_actividad_list" messageCode="global_menu_list" url="/actividads?page=1&amp;size=${empty param.size ? 10 : param.size}" z="Bt9rU99ew6xvuxeZahySal8Yetg="/>
+        </menu:category>
+        <menu:category id="c_viaje" z="G5qttRJWRn1vBmcvZifn7evfBf0=">
+            <menu:item id="i_viaje_new" messageCode="global_menu_new" url="/viajes?form" z="YHzPD+S17l8etbXYjyN4vKSEagM="/>
+            <menu:item id="i_viaje_list" messageCode="global_menu_list" url="/viajes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="1ejUN2hyLDIy+moz0iWClIYP2GY="/>
+        </menu:category>
+        <menu:category id="c_hotel" z="7C2zkXEvMSfnPf6jh5Nc/V6fQEY=">
+            <menu:item id="i_hotel_new" messageCode="global_menu_new" url="/hotels?form" z="/WBsNr/VgyUOmLXLfXZU5LJT9sY="/>
+            <menu:item id="i_hotel_list" messageCode="global_menu_list" url="/hotels?page=1&amp;size=${empty param.size ? 10 : param.size}" z="FOElud587FYY5+wmWtI8bb6O3OY="/>
+        </menu:category>
+        <menu:category id="c_transporte" z="fzCjSolsbftO4IAmuuOYiLZYpfk=">
+            <menu:item id="i_transporte_new" messageCode="global_menu_new" url="/transportes?form" z="t+Gmrxuh/CQNjC/KPyouLOa733k="/>
+            <menu:item id="i_transporte_list" messageCode="global_menu_list" url="/transportes?page=1&amp;size=${empty param.size ? 10 : param.size}" z="ZL0v46f8/DsU7FvErW7asbcs6x4="/>
+        </menu:category>
+        <menu:category id="c_usuario" z="g6oG0656PcsmmvUYeBtpgiQROck=">
+            <menu:item id="i_usuario_new" messageCode="global_menu_new" url="/usuarios?form" z="RG1gCsiZQjg1HLDzXbHKht6yDkw="/>
+            <menu:item id="i_usuario_list" messageCode="global_menu_list" url="/usuarios?page=1&amp;size=${empty param.size ? 10 : param.size}" z="P7ZIPrcTTBR41JYD0QldbYgsZrM="/>
         </menu:category>
     </menu:menu>
 </div>

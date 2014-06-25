@@ -8,7 +8,13 @@
         <field:display field="ruta" id="s_com_dac2014_json_model_Imagen_ruta" object="${imagen}" z="mHVi3O1KKUtE7eadIVpsqotvlrk="/>
         <field:display field="image" id="s_com_dac2014_json_model_Imagen_image" object="${imagen}" z="1J2MQ8uoqe8ZCJl9scwx9IBmJoQ="/>
         <field:display field="contentType" id="s_com_dac2014_json_model_Imagen_contentType" object="${imagen}" z="vn2YNswH/cFOTuZ/3S0TZpKm00k="/>
-        <script>var nextstate = 'false';function pablo_el_que_lee(e){e.target.src=e.target.src.substr(0,e.target.src.indexOf('=')+1)+nextstate;if(nextstate=='true')nextstate='false';else nextstate='true';return false;}</script>
+        <script>var nextstate = 'false';
+        		function pablo_el_que_lee(e){
+        			e.target.src=e.target.src.substr(0,e.target.src.indexOf('=')+1)+nextstate;
+        		if(nextstate=='true')nextstate='false';else nextstate='true';
+        		return false;
+        	}
+        </script>
         <img src="${imagen.id}/image?thumb=true" onClick="return pablo_el_que_lee(event);"/>
     </page:show>
 </div>
