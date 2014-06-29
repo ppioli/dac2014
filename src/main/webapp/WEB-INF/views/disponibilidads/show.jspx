@@ -4,5 +4,6 @@
     <jsp:output omit-xml-declaration="yes"/>
     <page:show id="ps_com_dac2014_json_model_Disponibilidad" object="${disponibilidad}" path="/disponibilidads" z="NyLMklw2MNzHtRYB2o/U8kyPm4U=">
         <field:display date="true" dateTimePattern="${disponibilidad_fechasalida_date_format}" field="fechaSalida" id="s_com_dac2014_json_model_Disponibilidad_fechaSalida" object="${disponibilidad}" z="dE/A/PxK4U0Le9J6xC0QkX+zhWw="/>
+        <field:display field="viaje" id="s_com_dac2014_json_model_Disponibilidad_viaje" object="${disponibilidad}" z="6GiJA6K91omyWpaWCGFvK8ggFZ0="/>
     </page:show>
 </div>

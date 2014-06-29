@@ -6,6 +6,7 @@ package com.dac2014.json.controller;
 import com.dac2014.json.controller.ActividadController;
 import com.dac2014.json.model.Actividad;
 import com.dac2014.json.model.Imagen;
+import com.dac2014.json.model.Viaje;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -98,6 +99,7 @@ privileged aspect ActividadController_Roo_Controller {
         uiModel.addAttribute("actividad", actividad);
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("imagens", Imagen.findAllImagens());
+        uiModel.addAttribute("viajes", Viaje.findAllViajes());
     }
     
     String ActividadController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

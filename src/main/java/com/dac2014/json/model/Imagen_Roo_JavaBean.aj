@@ -3,7 +3,11 @@
 
 package com.dac2014.json.model;
 
+import com.dac2014.json.model.Actividad;
+import com.dac2014.json.model.Hotel;
 import com.dac2014.json.model.Imagen;
+import com.dac2014.json.model.Viaje;
+import java.util.Set;
 import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 privileged aspect Imagen_Roo_JavaBean {
@@ -46,6 +50,30 @@ privileged aspect Imagen_Roo_JavaBean {
     
     public void Imagen.setContentType(String contentType) {
         this.contentType = contentType;
+    }
+    
+    public Set<Viaje> Imagen.getViajes() {
+        return this.viajes;
+    }
+    
+    public void Imagen.setViajes(Set<Viaje> viajes) {
+        this.viajes = viajes;
+    }
+    
+    public Set<Hotel> Imagen.getHoteles() {
+        return this.hoteles;
+    }
+    
+    public void Imagen.setHoteles(Set<Hotel> hoteles) {
+        this.hoteles = hoteles;
+    }
+    
+    public Set<Actividad> Imagen.getActividades() {
+        return this.actividades;
+    }
+    
+    public void Imagen.setActividades(Set<Actividad> actividades) {
+        this.actividades = actividades;
     }
     
 }

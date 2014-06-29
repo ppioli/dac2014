@@ -6,5 +6,8 @@
         <field:display field="nombre" id="s_com_dac2014_json_model_Hotel_nombre" object="${hotel}" z="o409nIMdtMEEElUtYo//XjZ9CPE="/>
         <field:display field="descripcion" id="s_com_dac2014_json_model_Hotel_descripcion" object="${hotel}" z="aPtp3XznwAWNhVWNdRF2/ioZkL8="/>
         <field:display field="costo" id="s_com_dac2014_json_model_Hotel_costo" object="${hotel}" z="VX+GvG/nMgt9ZVftw+AJs5vZyyQ="/>
+        <field:display field="cantidad" id="s_com_dac2014_json_model_Hotel_cantidad" object="${hotel}" z="DDHl+OeNIpl/z+W1rCkCdrWTJZ4="/>
+        <field:display field="disponibilidad" id="s_com_dac2014_json_model_Hotel_disponibilidad" object="${hotel}" z="a/qy+sSwGXsI7f46aWwI7eA9AL4="/>
+        <field:display field="imagenes" id="s_com_dac2014_json_model_Hotel_imagenes" object="${hotel}" z="YLiV+nPqhtdulOdFQa2b9Hmxxjg="/>
     </page:show>
 </div>

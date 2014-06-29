@@ -14,7 +14,7 @@ privileged aspect Viaje_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Viaje.entityManager;
     
-    public static final List<String> Viaje.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "descripcion", "actividades", "disponibilidades", "fechaVencimiento", "imagenes");
+    public static final List<String> Viaje.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "descripcion", "featured", "active", "destino", "localidad", "precio", "actividades", "disponibilidades", "fechaVencimiento", "imagenes", "paises", "id", "version");
     
     public static final EntityManager Viaje.entityManager() {
         EntityManager em = new Viaje().entityManager;

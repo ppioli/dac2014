@@ -3,9 +3,11 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:update id="fu_com_dac2014_json_model_Hotel" modelAttribute="hotel" path="/hotels" versionField="Version" z="QtHTqnpqUTI1r7tcM8GEFs54PqA=">
-        <field:input field="nombre" id="c_com_dac2014_json_model_Hotel_nombre" required="true" z="+TZ8t7ajktX/QCBlfSrW3HXbRWo="/>
+        <field:input field="nombre" id="c_com_dac2014_json_model_Hotel_nombre" z="LxAReQLRKBfNMA9ztG6L8tFzFpU="/>
         <field:input field="descripcion" id="c_com_dac2014_json_model_Hotel_descripcion" z="CctwFOEUTYsR/ZSlNsTmMytaZHg="/>
         <field:input field="costo" id="c_com_dac2014_json_model_Hotel_costo" z="YPspYypLdMAMTcmzflL+duXWZf0="/>
-        <field:simple field="imagenes" id="c_com_dac2014_json_model_Hotel_imagenes" messageCode="entity_reference_not_managed" messageCodeAttribute="Imagen" z="rckn/taK5wuz4Ct3olnRvN4mn2w="/>
+        <field:select field="imagenes" id="c_com_dac2014_json_model_Hotel_imagenes" itemValue="id" items="${imagens}" multiple="true" path="/imagens" z="w5/vwYdqjC51dOBFJob+rVHRb2g="/>
+        <field:input field="cantidad" id="c_com_dac2014_json_model_Hotel_cantidad" z="CkLW2TdLRtBbvGD+jnqVoAuJBvE="/>
+        <field:select field="disponibilidad" id="c_com_dac2014_json_model_Hotel_disponibilidad" itemValue="id" items="${disponibilidads}" path="/disponibilidads" z="/Yw0ksbo2aaO7Gl8STtyazThiOU="/>
     </form:update>
 </div>

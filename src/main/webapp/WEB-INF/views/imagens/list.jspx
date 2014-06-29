@@ -9,9 +9,10 @@
             <table:column id="c_com_dac2014_json_model_Imagen_ruta" property="ruta" z="DkSusipNUKUsTIL9RZM2D60fz/E="/>
             <table:column id="c_com_dac2014_json_model_Imagen_image" property="image" z="NbTXXefKYnjZrfiYtH2/S/yyGXU="/>
             <table:column id="c_com_dac2014_json_model_Imagen_contentType" property="contentType" z="IZEb13TjiI92rU8aKIUQL8ibZNU="/>
+            <table:column id="c_com_dac2014_json_model_Imagen_viajes" property="viajes" z="4NxYTY/D+di0g3QFgV0vZ6XpOPU="/>
         </table:table>
     </page:list>
-	<script>
+    <script>
 		console.log("holas");
 		var store;
 		require(["dojo/store/JsonRest"], function(JsonRest){
@@ -72,8 +73,8 @@
 		
 		
 	</script>
-	<BUTTON id="clari" onClick="store.get(1).then(function(item){document.getElementById('dasd').innerHTML=item.ruta})">Click Me</BUTTON>
-	<div id="dasd">dasdasd</div>
-	<div id="gallery" data-dojo-type="dojox.image.Gallery"></div>
-	<button onclick="myDialog.show();">show</button>
+    <BUTTON id="clari" onClick="store.get(1).then(function(item){document.getElementById('dasd').innerHTML=item.ruta})">Click Me</BUTTON>
+    <div id="dasd">dasdasd</div>
+    <div data-dojo-type="dojox.image.Gallery" id="gallery"/>
+    <button onclick="myDialog.show();">show</button>
 </div>

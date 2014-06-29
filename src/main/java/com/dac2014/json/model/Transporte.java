@@ -1,4 +1,6 @@
 package com.dac2014.json.model;
+import javax.persistence.ManyToOne;
+
 import org.springframework.roo.addon.javabean.RooJavaBean;
 import org.springframework.roo.addon.jpa.activerecord.RooJpaActiveRecord;
 import org.springframework.roo.addon.tostring.RooToString;
@@ -15,4 +17,9 @@ public class Transporte {
     private String descripcion;
 
     private double costo;
+    
+    private int cantidad;
+    
+    @ManyToOne
+    private Disponibilidad disponibilidad;
 }

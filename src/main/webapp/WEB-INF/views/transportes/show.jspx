@@ -6,5 +6,7 @@
         <field:display field="nombre" id="s_com_dac2014_json_model_Transporte_nombre" object="${transporte}" z="LwLHWaTjKpqce1140gFW9CdrXps="/>
         <field:display field="descripcion" id="s_com_dac2014_json_model_Transporte_descripcion" object="${transporte}" z="S4oFxWV44Fq9WPob4XmRllRcdck="/>
         <field:display field="costo" id="s_com_dac2014_json_model_Transporte_costo" object="${transporte}" z="YIoOtSz15Emqawl6FL59qKytOTY="/>
+        <field:display field="cantidad" id="s_com_dac2014_json_model_Transporte_cantidad" object="${transporte}" z="cjsEnT7Y4WqyTKfv9hIRLc10wbQ="/>
+        <field:display field="disponibilidad" id="s_com_dac2014_json_model_Transporte_disponibilidad" object="${transporte}" z="gTLdegEEfqtR//sqoc66yZGM0I4="/>
     </page:show>
 </div>

@@ -7,5 +7,10 @@
         <field:display field="descripcion" id="s_com_dac2014_json_model_Viaje_descripcion" object="${viaje}" z="WzutzvSr0XusgV7d74Rrkc63NgE="/>
         <field:display date="true" dateTimePattern="${viaje_fechavencimiento_date_format}" field="fechaVencimiento" id="s_com_dac2014_json_model_Viaje_fechaVencimiento" object="${viaje}" z="ZqvsPG4Ty1c/bEMGh0kL4lplICc="/>
         <field:display field="imagenes" id="s_com_dac2014_json_model_Viaje_imagenes" object="${viaje}" z="ORoqFGnW7engCvcIoMXrj0iOvXU="/>
+        <field:display field="featured" id="s_com_dac2014_json_model_Viaje_featured" object="${viaje}" z="PcoW8wV+5Afe0kJrHsbJT7M0M20="/>
+        <field:display field="active" id="s_com_dac2014_json_model_Viaje_active" object="${viaje}" z="9NKN6I+H9sYCrhacMLcT3gSOuWs="/>
+        <field:display field="destino" id="s_com_dac2014_json_model_Viaje_destino" object="${viaje}" z="4PPmMOLfCrD5n6u1+eME56gDknA="/>
+        <field:display field="localidad" id="s_com_dac2014_json_model_Viaje_localidad" object="${viaje}" z="rW9cTJN+2cDaCd7iM068xbztFbU="/>
+        <field:display field="precio" id="s_com_dac2014_json_model_Viaje_precio" object="${viaje}" z="+GwfiS7HNeJD77yfrBgc3BOrw/M="/>
     </page:show>
 </div>

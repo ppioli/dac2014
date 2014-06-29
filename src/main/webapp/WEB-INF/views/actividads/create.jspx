@@ -3,9 +3,12 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <jsp:output omit-xml-declaration="yes"/>
     <form:create id="fc_com_dac2014_json_model_Actividad" modelAttribute="actividad" path="/actividads" render="${empty dependencies}" z="MhXnE8TKdWJgxB3SiPGHtNXbIZA=">
-        <field:simple field="imagenes" id="c_com_dac2014_json_model_Actividad_imagenes" messageCode="entity_reference_not_managed" messageCodeAttribute="Imagen" z="CAYrvRoi0jbJg2KY4nITWkLytGo="/>
+        <field:select field="imagenes" id="c_com_dac2014_json_model_Actividad_imagenes" itemValue="id" items="${imagens}" multiple="true" path="/imagens" z="Xf/x1MSQF3bz/uYSVZPyoduuLVo="/>
         <field:datetime dateTimePattern="${actividad_inicio_date_format}" field="inicio" id="c_com_dac2014_json_model_Actividad_inicio" z="tCXQaDRmD1JgHwDjNGkBSqZ2GXg="/>
         <field:datetime dateTimePattern="${actividad_fin_date_format}" field="fin" id="c_com_dac2014_json_model_Actividad_fin" z="d5SurRKBU5XN9/2oEDd5comUgfs="/>
+        <field:input field="name" id="c_com_dac2014_json_model_Actividad_name" z="3PVrePR2OqZCpBZ7cFXUbaYq+uU="/>
+        <field:input field="Description" id="c_com_dac2014_json_model_Actividad_Description" z="yZ9iS3n9mcWkmANwbRGJU9HtwYY="/>
+        <field:select field="viaje" id="c_com_dac2014_json_model_Actividad_viaje" itemValue="id" items="${viajes}" path="/viajes" z="tzDsR06hgsVNhzrUXVC/A2yGKek="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_dac2014_json_model_Actividad" render="${not empty dependencies}" z="nZDBd7kR7nnYGjkPqPO26W/BRkQ="/>
 </div>

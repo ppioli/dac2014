@@ -14,7 +14,7 @@ privileged aspect Disponibilidad_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Disponibilidad.entityManager;
     
-    public static final List<String> Disponibilidad.fieldNames4OrderClauseFilter = java.util.Arrays.asList("hoteles", "transportes", "fechaSalida");
+    public static final List<String> Disponibilidad.fieldNames4OrderClauseFilter = java.util.Arrays.asList("hoteles", "transportes", "viaje", "fechaSalida");
     
     public static final EntityManager Disponibilidad.entityManager() {
         EntityManager em = new Disponibilidad().entityManager;

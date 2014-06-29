@@ -1,4 +1,8 @@
 package com.dac2014.json.model;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.ManyToMany;
 import javax.persistence.Transient;
 
 import org.springframework.roo.addon.javabean.RooJavaBean;
@@ -35,6 +39,12 @@ public class Imagen {
      */
     private String contentType;
     
+    @ManyToMany(mappedBy="imagenes")
+    private Set<Viaje> viajes;
     
+    @ManyToMany(mappedBy="imagenes")
+    private Set<Hotel> hoteles;
     
-}
+    @ManyToMany(mappedBy="imagenes")
+    private Set<Actividad> actividades;
+ }

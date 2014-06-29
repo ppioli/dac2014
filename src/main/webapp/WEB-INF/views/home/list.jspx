@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" xmlns:table="urn:jsptagdir:/WEB-INF/tags/form/fields" version="2.0">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <jsp:output omit-xml-declaration="yes"/>
+    
+    <c:choose>
+        <c:when test="${not empty viajes}">
+          <c:forEach items="${viajes}" var="viaje">
+		    	<page:showViaje viaje="${viaje}"/>
+		  </c:forEach>
+        </c:when>
+        <c:otherwise>
+          No se encontraron viajes
+        </c:otherwise>
+      </c:choose>
+    
+</div>

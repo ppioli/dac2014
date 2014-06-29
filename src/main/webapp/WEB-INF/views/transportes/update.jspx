@@ -6,5 +6,7 @@
         <field:input field="nombre" id="c_com_dac2014_json_model_Transporte_nombre" z="q/xyoGUYcH+Y5y101O1CxEFRG/A="/>
         <field:input field="descripcion" id="c_com_dac2014_json_model_Transporte_descripcion" z="KY+yp9Dj8Q9xIXV4NRCaBQZLsnc="/>
         <field:input field="costo" id="c_com_dac2014_json_model_Transporte_costo" z="yf1Xenw8yhTzF38zUEewIaHC7Sc="/>
+        <field:input field="cantidad" id="c_com_dac2014_json_model_Transporte_cantidad" z="2YqS9wF7t+hwGFAZ9tUUPjb2334="/>
+        <field:select field="disponibilidad" id="c_com_dac2014_json_model_Transporte_disponibilidad" itemValue="id" items="${disponibilidads}" path="/disponibilidads" z="vAmV1LBYegwQT3rfO1Jihidcp8s="/>
     </form:update>
 </div>

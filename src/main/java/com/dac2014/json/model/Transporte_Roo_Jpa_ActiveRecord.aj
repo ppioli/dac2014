@@ -14,7 +14,7 @@ privileged aspect Transporte_Roo_Jpa_ActiveRecord {
     @PersistenceContext
     transient EntityManager Transporte.entityManager;
     
-    public static final List<String> Transporte.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "descripcion", "costo");
+    public static final List<String> Transporte.fieldNames4OrderClauseFilter = java.util.Arrays.asList("nombre", "descripcion", "costo", "cantidad", "disponibilidad");
     
     public static final EntityManager Transporte.entityManager() {
         EntityManager em = new Transporte().entityManager;

@@ -6,6 +6,10 @@
         <table:table data="${actividads}" id="l_com_dac2014_json_model_Actividad" path="/actividads" z="X8JJHUaw/hWhqp2jsCj+/0GlOsk=">
             <table:column date="true" dateTimePattern="${actividad_inicio_date_format}" id="c_com_dac2014_json_model_Actividad_inicio" property="inicio" z="cuisXozSvzF1arLoiwtbZA+1bEo="/>
             <table:column date="true" dateTimePattern="${actividad_fin_date_format}" id="c_com_dac2014_json_model_Actividad_fin" property="fin" z="ZE50T39fJKNhWoi3lDcmo6MF/LA="/>
+            <table:column id="c_com_dac2014_json_model_Actividad_name" property="name" z="qVSfWII9hPc1I80iLViUziLZIag="/>
+            <table:column id="c_com_dac2014_json_model_Actividad_Description" property="description" z="vc3Foo4C7cvjHzXcEYReBBnzTmU="/>
+            <table:column id="c_com_dac2014_json_model_Actividad_viaje" property="viaje" z="RZU6HFeFti+BDx/v7P0cKVb2GRk="/>
+            <table:column id="c_com_dac2014_json_model_Actividad_imagenes" property="imagenes" z="9s8dWMmwkZyZ1T3HUwfwQC9f0+A="/>
         </table:table>
     </page:list>
 </div>

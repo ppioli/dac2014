@@ -6,6 +6,7 @@ package com.dac2014.json.model;
 import com.dac2014.json.model.Disponibilidad;
 import com.dac2014.json.model.Hotel;
 import com.dac2014.json.model.Transporte;
+import com.dac2014.json.model.Viaje;
 import java.util.Date;
 import java.util.Set;
 
@@ -25,6 +26,14 @@ privileged aspect Disponibilidad_Roo_JavaBean {
     
     public void Disponibilidad.setTransportes(Set<Transporte> transportes) {
         this.transportes = transportes;
+    }
+    
+    public Viaje Disponibilidad.getViaje() {
+        return this.viaje;
+    }
+    
+    public void Disponibilidad.setViaje(Viaje viaje) {
+        this.viaje = viaje;
     }
     
     public Date Disponibilidad.getFechaSalida() {

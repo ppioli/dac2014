@@ -3,6 +3,7 @@
 
 package com.dac2014.json.model;
 
+import com.dac2014.json.model.Disponibilidad;
 import com.dac2014.json.model.Transporte;
 
 privileged aspect Transporte_Roo_JavaBean {
@@ -29,6 +30,22 @@ privileged aspect Transporte_Roo_JavaBean {
     
     public void Transporte.setCosto(double costo) {
         this.costo = costo;
+    }
+    
+    public int Transporte.getCantidad() {
+        return this.cantidad;
+    }
+    
+    public void Transporte.setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
+    public Disponibilidad Transporte.getDisponibilidad() {
+        return this.disponibilidad;
+    }
+    
+    public void Transporte.setDisponibilidad(Disponibilidad disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
     
 }

@@ -6,8 +6,10 @@
         <table:table data="${viajes}" id="l_com_dac2014_json_model_Viaje" path="/viajes" z="PHtERpAXMv0F0ZTeQvLCh3XS3yY=">
             <table:column id="c_com_dac2014_json_model_Viaje_nombre" property="nombre" z="V22OSavc+54oG0zVlc7RBzgUZks="/>
             <table:column id="c_com_dac2014_json_model_Viaje_descripcion" property="descripcion" z="T4lQtJ7K6s+iLJWxUK+UZvd8L/w="/>
-            <table:column date="true" dateTimePattern="${viaje_fechavencimiento_date_format}" id="c_com_dac2014_json_model_Viaje_fechaVencimiento" property="fechaVencimiento" z="iEKU17PvsSlgFTSskoxlDiN4BH4="/>
-            <table:column id="c_com_dac2014_json_model_Viaje_imagenes" property="imagenes" z="EXx3IuHB0CPZoRTOc/WVkJBMVoA="/>
+            <table:column id="c_com_dac2014_json_model_Viaje_featured" property="featured" z="s5/aYboQZ/hboxNJr1UCGjlZ0Y0="/>
+            <table:column id="c_com_dac2014_json_model_Viaje_active" property="active" z="9ue1NBEw0tzWKcsbqtegFISFk2E="/>
+            <table:column id="c_com_dac2014_json_model_Viaje_destino" property="destino" z="zF7M5sVpVMPObj/fb41Vmn70jcs="/>
+            <table:column id="c_com_dac2014_json_model_Viaje_localidad" property="localidad" z="eVQoDSvglMj/yug8cdVncNVI7kI="/>
         </table:table>
     </page:list>
 </div>

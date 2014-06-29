@@ -8,5 +8,8 @@
         <field:input field="ruta" id="c_com_dac2014_json_model_Imagen_ruta" z="Q5XziQNP4VC8W3SCbtkkvRCK+60="/>
         <field:input field="image" id="c_com_dac2014_json_model_Imagen_image" z="GAr7oiz0jyOp+wjfXV6yNc9TBCQ="/>
         <field:input field="contentType" id="c_com_dac2014_json_model_Imagen_contentType" z="P2etpx5wltuO38uPnVmnDcmdzyM="/>
+        <field:select field="viajes" id="c_com_dac2014_json_model_Imagen_viajes" itemValue="id" items="${viajes}" multiple="true" path="/viajes" z="IZ7N4XYkngCkBUSbk9Y9ebYYaNE="/>
+        <field:select field="hoteles" id="c_com_dac2014_json_model_Imagen_hoteles" itemValue="id" items="${hotels}" multiple="true" path="/hotels" z="ZwKPsZj4BUsWOOJW95iv8Pz6wdc="/>
+        <field:select field="actividades" id="c_com_dac2014_json_model_Imagen_actividades" itemValue="id" items="${actividads}" multiple="true" path="/actividads" z="eZcYXdJCeebhNpGed8dWl6eOmgI="/>
     </form:update>
 </div>

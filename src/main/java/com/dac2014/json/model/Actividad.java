@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
 import java.util.Date;
@@ -23,12 +26,20 @@ import org.springframework.roo.addon.json.RooJson;
 @RooJpaActiveRecord
 @RooJson
 public class Actividad {
-
+	
+	private String name;
+	
+	private String Description;
+	
     /**
      */
-	@NotNull
-    @OneToMany(cascade = CascadeType.ALL)
+	
+    @ManyToMany
+    @JoinTable(name="ACT_IMG")
     private Set<Imagen> imagenes = new HashSet<Imagen>();
+	
+	@ManyToOne
+	private Viaje viaje;
 
     /**
      */

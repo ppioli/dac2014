@@ -5,10 +5,27 @@ package com.dac2014.json.model;
 
 import com.dac2014.json.model.Actividad;
 import com.dac2014.json.model.Imagen;
+import com.dac2014.json.model.Viaje;
 import java.util.Date;
 import java.util.Set;
 
 privileged aspect Actividad_Roo_JavaBean {
+    
+    public String Actividad.getName() {
+        return this.name;
+    }
+    
+    public void Actividad.setName(String name) {
+        this.name = name;
+    }
+    
+    public String Actividad.getDescription() {
+        return this.Description;
+    }
+    
+    public void Actividad.setDescription(String Description) {
+        this.Description = Description;
+    }
     
     public Set<Imagen> Actividad.getImagenes() {
         return this.imagenes;
@@ -16,6 +33,14 @@ privileged aspect Actividad_Roo_JavaBean {
     
     public void Actividad.setImagenes(Set<Imagen> imagenes) {
         this.imagenes = imagenes;
+    }
+    
+    public Viaje Actividad.getViaje() {
+        return this.viaje;
+    }
+    
+    public void Actividad.setViaje(Viaje viaje) {
+        this.viaje = viaje;
     }
     
     public Date Actividad.getInicio() {

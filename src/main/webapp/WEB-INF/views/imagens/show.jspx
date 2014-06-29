@@ -15,6 +15,9 @@
         		return false;
         	}
         </script>
-        <img src="${imagen.id}/image?thumb=true" onClick="return pablo_el_que_lee(event);"/>
+        <img onClick="return pablo_el_que_lee(event);" src="${imagen.id}/image?thumb=true"/>
+        <field:display field="viajes" id="s_com_dac2014_json_model_Imagen_viajes" object="${imagen}" z="hc/xe01iehfx007cwbgtOaNB4as="/>
+        <field:display field="hoteles" id="s_com_dac2014_json_model_Imagen_hoteles" object="${imagen}" z="zIFhu37N4963PKO54tMoNn9+g7g="/>
+        <field:display field="actividades" id="s_com_dac2014_json_model_Imagen_actividades" object="${imagen}" z="a9+A2uxioSN5FUkUE7Vnvb2VU3k="/>
     </page:show>
 </div>

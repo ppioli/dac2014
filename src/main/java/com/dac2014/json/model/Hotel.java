@@ -7,6 +7,9 @@ import java.util.HashSet;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -19,16 +22,23 @@ import org.springframework.roo.addon.json.RooJson;
 @RooJson
 public class Hotel {
 	
-	@Min(3)
-	@NotNull
-    private String nombre;
+	private String nombre;
 
     private String descripcion;
+    
+    private int cantidad;
+    
+    //faltan habitaciones
 
     private double costo;
-
+    
+    @ManyToOne
+    private Disponibilidad disponibilidad;
+    
     /**
      */
-    @OneToMany(cascade = CascadeType.ALL)
+    
+    @ManyToMany
+    @JoinTable(name="HOT_IMG")
     private Set<Imagen> imagenes = new HashSet<Imagen>();
 }

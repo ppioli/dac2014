@@ -9,5 +9,10 @@
         <field:simple field="disponibilidades" id="c_com_dac2014_json_model_Viaje_disponibilidades" messageCode="entity_reference_not_managed" messageCodeAttribute="Disponibilidad" z="bnOO7Ct/rTrjUY6D49xqLJVt0Js="/>
         <field:datetime dateTimePattern="${viaje_fechavencimiento_date_format}" field="fechaVencimiento" id="c_com_dac2014_json_model_Viaje_fechaVencimiento" z="/uMGESbEWcARRoKPPQ4TefLncsY="/>
         <field:select field="imagenes" id="c_com_dac2014_json_model_Viaje_imagenes" itemValue="id" items="${imagens}" multiple="true" path="/imagens" z="tEbn5z/hf+Z3Cz0wYfCYwmBP1zE="/>
+        <field:checkbox field="featured" id="c_com_dac2014_json_model_Viaje_featured" z="gMd9sM6d2HjDKaQokMB5B7OmUJ4="/>
+        <field:checkbox field="active" id="c_com_dac2014_json_model_Viaje_active" z="nZoFEiLHbeumkpNbLmMW+6kQvdk="/>
+        <field:input field="destino" id="c_com_dac2014_json_model_Viaje_destino" z="PIxNA89ZwidqI77yvmY0ZKFd0Kw="/>
+        <field:input field="localidad" id="c_com_dac2014_json_model_Viaje_localidad" z="m6rwNjYDczo0YLGYHiY9u3/xikw="/>
+        <field:input field="precio" id="c_com_dac2014_json_model_Viaje_precio" z="UBo8aufmGn+A9Nwlj9tnpshCRGw="/>
     </form:update>
 </div>

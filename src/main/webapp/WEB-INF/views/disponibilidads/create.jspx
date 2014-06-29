@@ -6,6 +6,7 @@
         <field:simple field="hoteles" id="c_com_dac2014_json_model_Disponibilidad_hoteles" messageCode="entity_reference_not_managed" messageCodeAttribute="Hotel" z="UssYXrRpgmXd4kIdqyWzLi+IHdM="/>
         <field:simple field="transportes" id="c_com_dac2014_json_model_Disponibilidad_transportes" messageCode="entity_reference_not_managed" messageCodeAttribute="Transporte" z="54cwhdeTJW3sHq+koZYO7w1+Mmk="/>
         <field:datetime dateTimePattern="${disponibilidad_fechasalida_date_format}" field="fechaSalida" id="c_com_dac2014_json_model_Disponibilidad_fechaSalida" z="OrurIVPASltqtfNKSmjCorjEgxA="/>
+        <field:select field="viaje" id="c_com_dac2014_json_model_Disponibilidad_viaje" itemValue="id" items="${viajes}" path="/viajes" z="3EK7hy5jO+pgmme+NIZ3zYdpxow="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_dac2014_json_model_Disponibilidad" render="${not empty dependencies}" z="1gM8Or9Usa3xw5nM1bzd8+olobs="/>
 </div>

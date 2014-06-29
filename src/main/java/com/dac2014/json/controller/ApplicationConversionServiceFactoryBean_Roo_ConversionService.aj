@@ -22,7 +22,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Actividad, String> ApplicationConversionServiceFactoryBean.getActividadToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Actividad, java.lang.String>() {
             public String convert(Actividad actividad) {
-                return new StringBuilder().append(actividad.getInicio()).append(' ').append(actividad.getFin()).toString();
+                return new StringBuilder().append(actividad.getName()).append(' ').append(actividad.getDescription()).append(' ').append(actividad.getInicio()).append(' ').append(actividad.getFin()).toString();
             }
         };
     }
@@ -70,7 +70,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Hotel, String> ApplicationConversionServiceFactoryBean.getHotelToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Hotel, java.lang.String>() {
             public String convert(Hotel hotel) {
-                return new StringBuilder().append(hotel.getNombre()).append(' ').append(hotel.getDescripcion()).append(' ').append(hotel.getCosto()).toString();
+                return new StringBuilder().append(hotel.getNombre()).append(' ').append(hotel.getDescripcion()).append(' ').append(hotel.getCantidad()).append(' ').append(hotel.getCosto()).toString();
             }
         };
     }
@@ -118,7 +118,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Transporte, String> ApplicationConversionServiceFactoryBean.getTransporteToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Transporte, java.lang.String>() {
             public String convert(Transporte transporte) {
-                return new StringBuilder().append(transporte.getNombre()).append(' ').append(transporte.getDescripcion()).append(' ').append(transporte.getCosto()).toString();
+                return new StringBuilder().append(transporte.getNombre()).append(' ').append(transporte.getDescripcion()).append(' ').append(transporte.getCosto()).append(' ').append(transporte.getCantidad()).toString();
             }
         };
     }
@@ -166,7 +166,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Viaje, String> ApplicationConversionServiceFactoryBean.getViajeToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Viaje, java.lang.String>() {
             public String convert(Viaje viaje) {
-                return new StringBuilder().append(viaje.getNombre()).append(' ').append(viaje.getDescripcion()).append(' ').append(viaje.getFechaVencimiento()).toString();
+                return new StringBuilder().append(viaje.getNombre()).append(' ').append(viaje.getDescripcion()).append(' ').append(viaje.getDestino()).append(' ').append(viaje.getLocalidad()).toString();
             }
         };
     }

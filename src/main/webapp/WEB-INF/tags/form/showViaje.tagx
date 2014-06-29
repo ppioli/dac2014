@@ -1,0 +1,39 @@
+<jsp:root xmlns:c="http://java.sun.com/jsp/jstl/core" xmlns:fn="http://java.sun.com/jsp/jstl/functions" xmlns:util="urn:jsptagdir:/WEB-INF/tags/util" xmlns:form="http://www.springframework.org/tags/form" xmlns:jsp="http://java.sun.com/JSP/Page" xmlns:spring="http://www.springframework.org/tags" version="2.0">
+  <jsp:output omit-xml-declaration="yes" />
+
+  
+  <jsp:directive.attribute name="viaje" type="java.lang.Object" required="true" rtexprvalue="true" description="The form backing object" />
+  
+  
+  <div>
+    <li class="tour-item service-summary" id="2091">
+      <ul>
+        <li class="col-left">
+          <ul>
+            <li><img src="http://www.rinconeducativo.org/radiacio/viajes.gif"/></li>
+            
+			
+            <li class="content-summary">
+              <h2><span class="sendResultForm" ><a href=
+              "#">${viaje.nombre }</a></span></h2>
+			  <div class="details">
+                <span class="sendResultForm" ><strong>${viaje.destino} - ${viaje.localidad}</strong></span>
+              </div>
+
+              <div class="details">
+                <span class="sendResultForm" ><strong>${viaje.descripcion}</strong></span>
+              </div>
+            </li>
+          </ul>
+        </li><!-- col-left -->
+
+        <li class="item-rate">
+        <span class="gray-span">Desde</span><span class="currency"><span><strong>AR$</strong>
+        </span><span class="currency-price">${viaje.precio}</span></span> <!-- Currency --> <a href="/json/home/${viaje.id}">Mas info</a></li><!-- item-rate -->
+      </ul>
+    </li>
+    </div>
+   
+   
+  
+</jsp:root>

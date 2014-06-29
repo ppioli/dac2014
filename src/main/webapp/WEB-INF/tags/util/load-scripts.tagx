@@ -15,8 +15,6 @@
   <spring:url value="/resources/js/gridx/resources/claro/Gridx_rtl.css" var="gridCssRtl" />
   
   
-  
-  
   <link rel="stylesheet" type="text/css" href="${tundra_url}" />
   <link rel="stylesheet" href="${gridCss}" media="screen"/>
   <link rel="stylesheet" type="text/css" media="screen" href="${roo_css_url}" />

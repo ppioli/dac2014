@@ -5,6 +5,7 @@
     <page:list id="pl_com_dac2014_json_model_Disponibilidad" items="${disponibilidads}" z="iteb9aJKQY2On7zUQe6mEPdLE54=">
         <table:table data="${disponibilidads}" id="l_com_dac2014_json_model_Disponibilidad" path="/disponibilidads" z="s3iK96rbHcj+hPvzzHC7bpZ3M5M=">
             <table:column date="true" dateTimePattern="${disponibilidad_fechasalida_date_format}" id="c_com_dac2014_json_model_Disponibilidad_fechaSalida" property="fechaSalida" z="nmVXY1iiyRj9wkeZysp5IjcrnlY="/>
+            <table:column id="c_com_dac2014_json_model_Disponibilidad_viaje" property="viaje" z="Zvn+WCWhP/6DGOygJ2gie8FtDXs="/>
         </table:table>
     </page:list>
 </div>

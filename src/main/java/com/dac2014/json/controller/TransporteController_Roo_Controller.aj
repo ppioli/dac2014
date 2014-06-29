@@ -4,6 +4,7 @@
 package com.dac2014.json.controller;
 
 import com.dac2014.json.controller.TransporteController;
+import com.dac2014.json.model.Disponibilidad;
 import com.dac2014.json.model.Transporte;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
@@ -86,6 +87,7 @@ privileged aspect TransporteController_Roo_Controller {
     
     void TransporteController.populateEditForm(Model uiModel, Transporte transporte) {
         uiModel.addAttribute("transporte", transporte);
+        uiModel.addAttribute("disponibilidads", Disponibilidad.findAllDisponibilidads());
     }
     
     String TransporteController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

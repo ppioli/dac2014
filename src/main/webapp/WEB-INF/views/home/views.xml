@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.1//EN" "http://tiles.apache.org/dtds/tiles-config_2_1.dtd">
+<tiles-definitions>
+    <definition extends="home" name="home/list">
+        <put-attribute name="body" value="/WEB-INF/views/home/list.jspx"/>
+    </definition>
+    
+	<definition extends="home" name="home/show">
+        <put-attribute name="body" value="/WEB-INF/views/home/show.jspx"/>
+    </definition>
+
+</tiles-definitions>

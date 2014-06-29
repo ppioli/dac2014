@@ -7,6 +7,8 @@
             <table:column id="c_com_dac2014_json_model_Transporte_nombre" property="nombre" z="YW2M0upL17zdFFqds+uu+yX6un8="/>
             <table:column id="c_com_dac2014_json_model_Transporte_descripcion" property="descripcion" z="VpAjj/rgCRpwT2aI9mV9C52PGLI="/>
             <table:column id="c_com_dac2014_json_model_Transporte_costo" property="costo" z="q8T7mRr2GF3CsD6lpIfM940XwaU="/>
+            <table:column id="c_com_dac2014_json_model_Transporte_cantidad" property="cantidad" z="TBxsJCwt6UheL0u3GSps0kLzxGA="/>
+            <table:column id="c_com_dac2014_json_model_Transporte_disponibilidad" property="disponibilidad" z="rJ6OLhF8Nso8w20AnvrIsiHoqL4="/>
         </table:table>
     </page:list>
 </div>

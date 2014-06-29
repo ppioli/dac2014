@@ -4,6 +4,7 @@
 package com.dac2014.json.controller;
 
 import com.dac2014.json.controller.HotelController;
+import com.dac2014.json.model.Disponibilidad;
 import com.dac2014.json.model.Hotel;
 import com.dac2014.json.model.Imagen;
 import java.io.UnsupportedEncodingException;
@@ -87,6 +88,7 @@ privileged aspect HotelController_Roo_Controller {
     
     void HotelController.populateEditForm(Model uiModel, Hotel hotel) {
         uiModel.addAttribute("hotel", hotel);
+        uiModel.addAttribute("disponibilidads", Disponibilidad.findAllDisponibilidads());
         uiModel.addAttribute("imagens", Imagen.findAllImagens());
     }
     

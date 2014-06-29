@@ -5,5 +5,9 @@
     <page:show id="ps_com_dac2014_json_model_Actividad" object="${actividad}" path="/actividads" z="omL9RQ1EboMuRALKauowi4zAeYk=">
         <field:display date="true" dateTimePattern="${actividad_inicio_date_format}" field="inicio" id="s_com_dac2014_json_model_Actividad_inicio" object="${actividad}" z="9hDNDIyKdFq3mbtHavLF0YhO3nM="/>
         <field:display date="true" dateTimePattern="${actividad_fin_date_format}" field="fin" id="s_com_dac2014_json_model_Actividad_fin" object="${actividad}" z="YBL9TWVPDYduZTf3cnf++gbXUHw="/>
+        <field:display field="name" id="s_com_dac2014_json_model_Actividad_name" object="${actividad}" z="0Qo5T8V5UXQB1ZI+me4exABOiLM="/>
+        <field:display field="description" id="s_com_dac2014_json_model_Actividad_Description" object="${actividad}" z="VJO3DVXjz93Uw2NtOIhoZt9goec="/>
+        <field:display field="viaje" id="s_com_dac2014_json_model_Actividad_viaje" object="${actividad}" z="wObpef/w6lHM/RRYJnrxk+LEgnw="/>
+        <field:display field="imagenes" id="s_com_dac2014_json_model_Actividad_imagenes" object="${actividad}" z="Jbp8WshmnDHxT3g3/f1C/bluJkA="/>
     </page:show>
 </div>

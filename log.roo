@@ -79,3 +79,7 @@ quit
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-05 20:15:01
 quit
 // Spring Roo 1.2.5.RELEASE [rev 8341dc2] log closed at 2014-06-06 01:55:07
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-25 18:17:41
+persistence setup --provider HIBERNATE --database POSTGRES 
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-26 07:21:21
+// Spring Roo 1.2.5.RELEASE [rev 8341dc2] log opened at 2014-06-27 21:05:29

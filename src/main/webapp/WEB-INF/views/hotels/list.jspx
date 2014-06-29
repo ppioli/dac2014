@@ -12,10 +12,18 @@
     </page:list>
     -->
     <page:grid id="hotel" modelAttribute="hotel">
-	    
-        	<th field="nombre" width="33%">Nombre</th>
-            <th field="descripcion" width="33%">Descripcion</th>
-            <th field="costo" width="33%">Costo</th>
-        
+        <th field="nombre" width="33%">Nombre</th>
+        <th field="descripcion" width="33%">Descripcion</th>
+        <th field="costo" width="33%">Costo</th>
     </page:grid>
+    <page:list id="pl_com_dac2014_json_model_Hotel" items="${hotels}" z="uUjgAKtQDEe0p6I7SD7gZ/RtSjU=">
+        <table:table data="${hotels}" id="l_com_dac2014_json_model_Hotel" path="/hotels" z="HUkLKLYr/r57SmWMGZsKi5q+ERM=">
+            <table:column id="c_com_dac2014_json_model_Hotel_nombre" property="nombre" z="J7j57Qf2NTyTthdc634a1x96JMU="/>
+            <table:column id="c_com_dac2014_json_model_Hotel_descripcion" property="descripcion" z="JE8C4Darpm9v7SZWRMpZnjO3bOA="/>
+            <table:column id="c_com_dac2014_json_model_Hotel_costo" property="costo" z="7BMGqKVWjzogBfaeIMbxYNWfIL4="/>
+            <table:column id="c_com_dac2014_json_model_Hotel_cantidad" property="cantidad" z="nfgC3iuQFHpnN5Lbz2cdd6D4E4c="/>
+            <table:column id="c_com_dac2014_json_model_Hotel_disponibilidad" property="disponibilidad" z="1XarUXTUd7jhBKtfY3n2cvrjE78="/>
+            <table:column id="c_com_dac2014_json_model_Hotel_imagenes" property="imagenes" z="7w5E/lixGmuwP9/9c/eg8L+JHBM="/>
+        </table:table>
+    </page:list>
 </div>

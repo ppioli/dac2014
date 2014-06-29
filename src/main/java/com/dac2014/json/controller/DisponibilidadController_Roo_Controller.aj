@@ -7,6 +7,7 @@ import com.dac2014.json.controller.DisponibilidadController;
 import com.dac2014.json.model.Disponibilidad;
 import com.dac2014.json.model.Hotel;
 import com.dac2014.json.model.Transporte;
+import com.dac2014.json.model.Viaje;
 import java.io.UnsupportedEncodingException;
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -99,6 +100,7 @@ privileged aspect DisponibilidadController_Roo_Controller {
         addDateTimeFormatPatterns(uiModel);
         uiModel.addAttribute("hotels", Hotel.findAllHotels());
         uiModel.addAttribute("transportes", Transporte.findAllTransportes());
+        uiModel.addAttribute("viajes", Viaje.findAllViajes());
     }
     
     String DisponibilidadController.encodeUrlPathSegment(String pathSegment, HttpServletRequest httpServletRequest) {

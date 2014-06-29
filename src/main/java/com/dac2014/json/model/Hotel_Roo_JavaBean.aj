@@ -3,6 +3,7 @@
 
 package com.dac2014.json.model;
 
+import com.dac2014.json.model.Disponibilidad;
 import com.dac2014.json.model.Hotel;
 import com.dac2014.json.model.Imagen;
 import java.util.Set;
@@ -25,12 +26,28 @@ privileged aspect Hotel_Roo_JavaBean {
         this.descripcion = descripcion;
     }
     
+    public int Hotel.getCantidad() {
+        return this.cantidad;
+    }
+    
+    public void Hotel.setCantidad(int cantidad) {
+        this.cantidad = cantidad;
+    }
+    
     public double Hotel.getCosto() {
         return this.costo;
     }
     
     public void Hotel.setCosto(double costo) {
         this.costo = costo;
+    }
+    
+    public Disponibilidad Hotel.getDisponibilidad() {
+        return this.disponibilidad;
+    }
+    
+    public void Hotel.setDisponibilidad(Disponibilidad disponibilidad) {
+        this.disponibilidad = disponibilidad;
     }
     
     public Set<Imagen> Hotel.getImagenes() {

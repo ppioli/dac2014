@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="content" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+
+
+
+
+	<div id="main">
+		<h1>
+			<p>${viaje.nombre}</p>
+		</h1>
+		<div id="gallery">
+			<c:forEach items="${viaje.imagenes}" var="imagen" end="0">
+				<img src="/json/imagens/${imagen.id}/image" width="auto"
+					height="355" />
+			</c:forEach>
+			<div>
+				<c:forEach items="${viaje.imagenes}" var="imagen">
+					<a href="#"><img
+						src="/json/imagens/${imagen.id}/image?thumb=true" /></a>
+				</c:forEach>
+			</div>
+		</div>
+
+		<div class="about">
+			<p>
+			<h2>Descripcion</h2>
+			</p>
+			<p>${viaje.descripcion}</p>
+		</div>
+
+		<p>
+		<h2>Actividades</h2>
+		</p>
+		<div id="sliderFrame">
+			<div id="slider">
+
+				<c:forEach items="${viaje.actividades}" var="act">
+					<c:forEach items="${act.imagenes}" var="imagen" end="0">
+						<img src="/json/imagens/${imagen.id}/image"
+							alt="${act.description}" />
+					</c:forEach>
+				</c:forEach>
+
+			</div>
+
+		</div>
+		<br/>
+		<br/>
+		<p>
+		<h2>Fechas de salida, transportes y hoteles disponibles</h2>
+		</p>
+		<div>
+			<form>
+				<select>
+					<c:forEach items="${viaje.disponibilidades}" var="disp">
+						<option value="${disp.id}">${disp.fechaSalida}</option>
+					</c:forEach>
+
+				</select>
+			</form>
+
+		</div>
+	</div>
+
+
+</div>
