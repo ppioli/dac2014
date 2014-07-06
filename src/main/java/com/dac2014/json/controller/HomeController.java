@@ -10,6 +10,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.dac2014.json.model.Disponibilidad;
+import com.dac2014.json.model.Hotel;
+import com.dac2014.json.model.Transporte;
+import com.dac2014.json.model.Usuario;
 import com.dac2014.json.model.Viaje;
 
 
@@ -44,8 +48,37 @@ public class HomeController {
         addDateTimeFormatPatterns(uiModel);
         return "home/list";
     }
+    
+    @RequestMapping(value="buy", produces = "text/html")
+    public String comprar(@RequestParam(value = "fecha", required = true) Long disp_id, 
+    		@RequestParam(value = "viaje", required = true) Long viaje_id,
+    		@RequestParam(value = "transporte", required = true) Long transporte_id,
+    		@RequestParam(value = "hotel", required = true) Long hotel_id, Model uiModel){
+    		
+    	uiModel.addAttribute("viaje", Viaje.findViaje(viaje_id));
+    	uiModel.addAttribute("transporte", Transporte.findTransporte(transporte_id));
+    	uiModel.addAttribute("hotel", Hotel.findHotel(hotel_id));
+    	uiModel.addAttribute("disponibilidad", Disponibilidad.findDisponibilidad(disp_id));
+        return "home/buy";
+    }
+    
     @RequestMapping(value = "abm", produces = "text/html")
     public String pruba(){
+        
+        return "index2";
+    }
+    
+    @RequestMapping(value = "/addusers", produces = "text/html")
+    public String addUsers(){
+        Usuario u = new Usuario();
+        
+        u.setNombre("Juan");
+        u.setEmail("email@email.com");
+        u.setEnable(true);
+        u.setPassword("8c6976e5b5410415bde908bd4dee15dfb167a9c873fc4bb8a81f6f2ab448a918");
+        u.setUsername("admin");
+        u.setRole("ROLE_ADMIN");
+        u.persist();
         
         return "index2";
     }

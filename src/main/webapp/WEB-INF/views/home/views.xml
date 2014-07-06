@@ -8,5 +8,9 @@
 	<definition extends="home" name="home/show">
         <put-attribute name="body" value="/WEB-INF/views/home/show.jspx"/>
     </definition>
+    
+    <definition extends="home" name="home/buy">
+        <put-attribute name="body" value="/WEB-INF/views/home/buy.jspx"/>
+    </definition>
 
 </tiles-definitions>

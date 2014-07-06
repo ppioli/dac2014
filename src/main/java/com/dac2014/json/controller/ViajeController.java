@@ -28,7 +28,7 @@ import org.springframework.web.util.UriUtils;
 import org.springframework.web.util.WebUtils;
 import org.springframework.roo.addon.web.mvc.controller.json.RooWebJson;
 
-@RequestMapping("/viajes")
+@RequestMapping("/admin/viajes")
 @Controller
 @RooWebScaffold(path = "viajes", formBackingObject = Viaje.class)
 @RooWebJson(jsonObject = Viaje.class)

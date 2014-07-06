@@ -8,6 +8,10 @@
         <field:input field="email" id="c_com_dac2014_json_model_Usuario_email" validationMessageCode="field_invalid_email" z="yiPhF5+6I7VVopEyrC7xs07t5U0="/>
         <field:datetime dateTimePattern="${usuario_fechanac_date_format}" field="fechaNac" id="c_com_dac2014_json_model_Usuario_fechaNac" z="0gn27GEnz7DEMpZI2R5DceHuxEE="/>
         <field:datetime dateTimePattern="${usuario_fecharegistro_date_format}" field="fechaRegistro" id="c_com_dac2014_json_model_Usuario_fechaRegistro" z="eQT4ilP52cyx2Y/D2WFUlvUKP2o="/>
+        <field:input field="password" id="c_com_dac2014_json_model_Usuario_password" z="+bdEuKro2FhelG+Wyb4svfbYJGM="/>
+        <field:input field="role" id="c_com_dac2014_json_model_Usuario_role" z="28AnQFlbH2bSFbVDskWD1FahfpI="/>
+        <field:input field="username" id="c_com_dac2014_json_model_Usuario_username" z="RaHcDa5PkzRLh4wyojevi98YT4I="/>
+        <field:checkbox field="enable" id="c_com_dac2014_json_model_Usuario_enable" z="RTJNixl2qYngnW+aVdesovvjvKw="/>
     </form:create>
     <form:dependency dependencies="${dependencies}" id="d_com_dac2014_json_model_Usuario" render="${not empty dependencies}" z="fGhcBiPA3+d4ndh4daIFB5A6TUQ="/>
 </div>

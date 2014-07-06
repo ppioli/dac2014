@@ -142,7 +142,7 @@ privileged aspect ApplicationConversionServiceFactoryBean_Roo_ConversionService 
     public Converter<Usuario, String> ApplicationConversionServiceFactoryBean.getUsuarioToStringConverter() {
         return new org.springframework.core.convert.converter.Converter<com.dac2014.json.model.Usuario, java.lang.String>() {
             public String convert(Usuario usuario) {
-                return new StringBuilder().append(usuario.getNombre()).append(' ').append(usuario.getApellido()).append(' ').append(usuario.getEmail()).append(' ').append(usuario.getFechaNac()).toString();
+                return new StringBuilder().append(usuario.getNombre()).append(' ').append(usuario.getApellido()).append(' ').append(usuario.getEmail()).append(' ').append(usuario.getPassword()).toString();
             }
         };
     }

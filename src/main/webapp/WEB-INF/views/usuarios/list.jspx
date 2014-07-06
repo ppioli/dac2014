@@ -7,8 +7,9 @@
             <table:column id="c_com_dac2014_json_model_Usuario_nombre" property="nombre" z="wCCxwDCYRQN3QhDzEJm1vismn3s="/>
             <table:column id="c_com_dac2014_json_model_Usuario_apellido" property="apellido" z="xgh/bDxqgpkm32g4JbtRFvNkuqU="/>
             <table:column id="c_com_dac2014_json_model_Usuario_email" property="email" z="bAdV8xnbHiLA3Ko0Kv3CsH6tZrw="/>
-            <table:column date="true" dateTimePattern="${usuario_fechanac_date_format}" id="c_com_dac2014_json_model_Usuario_fechaNac" property="fechaNac" z="iGcwujQC0gQpc3EWjfCrhjE2o+c="/>
-            <table:column date="true" dateTimePattern="${usuario_fecharegistro_date_format}" id="c_com_dac2014_json_model_Usuario_fechaRegistro" property="fechaRegistro" z="uGM6j7+IWSKjRRFRIbTFjh2UMWI="/>
+            <table:column id="c_com_dac2014_json_model_Usuario_password" property="password" z="mRN7d4rtnTg6x52lPkYSEJYIPoI="/>
+            <table:column id="c_com_dac2014_json_model_Usuario_role" property="role" z="q6XckqIDtrw0UKdtH8IvOycfeig="/>
+            <table:column id="c_com_dac2014_json_model_Usuario_enable" property="enable" z="+AMO7moda1LrmGzegIhtIO+nkUY="/>
         </table:table>
     </page:list>
 </div>

@@ -32,6 +32,38 @@ privileged aspect Usuario_Roo_JavaBean {
         this.email = email;
     }
     
+    public String Usuario.getPassword() {
+        return this.password;
+    }
+    
+    public void Usuario.setPassword(String password) {
+        this.password = password;
+    }
+    
+    public Boolean Usuario.getEnable() {
+        return this.enable;
+    }
+    
+    public void Usuario.setEnable(Boolean enable) {
+        this.enable = enable;
+    }
+    
+    public String Usuario.getRole() {
+        return this.role;
+    }
+    
+    public void Usuario.setRole(String role) {
+        this.role = role;
+    }
+    
+    public String Usuario.getUsername() {
+        return this.username;
+    }
+    
+    public void Usuario.setUsername(String username) {
+        this.username = username;
+    }
+    
     public Date Usuario.getFechaNac() {
         return this.fechaNac;
     }

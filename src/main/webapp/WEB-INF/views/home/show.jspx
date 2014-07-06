@@ -5,7 +5,52 @@
 	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
 	<jsp:directive.page contentType="text/html;charset=UTF-8" />
 	<jsp:output omit-xml-declaration="yes" />
+	<script type="text/javascript">
+		var t = [];
+		var h = [];
+		
+	
+		
+		function fill(){
+			var v = (document.getElementById("disponibilidades").value);
+			
+			while(list_t.hasChildNodes()){
+				list_t.removeChild(list_t.children[0]);
+			}
+			for(var i in t){
+				
+				if(v == t[i].idD){
+				   var opt = document.createElement("option");
+				   opt.value= t[i].idT;
+				   opt.innerHTML = t[i].value; // whatever property it has
 
+				   // then append it to the select element
+				   list_t.appendChild(opt);
+				}
+			}
+			while(list_h.hasChildNodes()){
+				list_h.removeChild(list_h.children[0]);
+			}
+			for(var i in h){
+				
+				if(v == h[i].idD){
+					console.log("Apendding "+h[i].value);
+					   var opt = document.createElement("option");
+					   opt.value= h[i].idT
+					   opt.innerHTML = h[i].value; 
+					   
+					   list_h.appendChild(opt);
+					}
+				}
+			}
+			
+			
+			
+			function addT(idD, idT, value, costo, x){
+				x.push({"idD":idD, "idT":idT, "value":value, "costo":costo})
+			}
+		
+	</script>
 
 
 
@@ -13,17 +58,15 @@
 		<h1>
 			<p>${viaje.nombre}</p>
 		</h1>
-		<div id="gallery">
-			<c:forEach items="${viaje.imagenes}" var="imagen" end="0">
-				<img src="/json/imagens/${imagen.id}/image" width="auto"
-					height="355" />
-			</c:forEach>
-			<div>
+		<div id="sliderFrame">
+			<div id="slider">
+
 				<c:forEach items="${viaje.imagenes}" var="imagen">
 					<a href="#"><img
-						src="/json/imagens/${imagen.id}/image?thumb=true" /></a>
+						src="/json/imagens/${imagen.id}/image" /></a>
 				</c:forEach>
 			</div>
+
 		</div>
 
 		<div class="about">
@@ -36,36 +79,51 @@
 		<p>
 		<h2>Actividades</h2>
 		</p>
-		<div id="sliderFrame">
-			<div id="slider">
-
-				<c:forEach items="${viaje.actividades}" var="act">
-					<c:forEach items="${act.imagenes}" var="imagen" end="0">
-						<img src="/json/imagens/${imagen.id}/image"
-							alt="${act.description}" />
-					</c:forEach>
-				</c:forEach>
-
-			</div>
-
-		</div>
+		<ul>
+		<c:forEach items="${viaje.actividades}" var="actividad">
+			<li>
+				<div>
+				Actividad: ${actividad.name}
+				Descripcion: ${actividad.description}
+				Fecha: ${actividad.inicio}
+				<A href="#">Ver imagenes</A>
+				</div>
+			</li>
+		</c:forEach>
+		</ul>
+		
 		<br/>
 		<br/>
-		<p>
 		<h2>Fechas de salida, transportes y hoteles disponibles</h2>
 		</p>
 		<div>
-			<form>
-				<select>
-					<c:forEach items="${viaje.disponibilidades}" var="disp">
+			<form method="GET" action="buy">
+			<input name="viaje" value="${viaje.id}"/> 
+				<select name="fecha" id="disponibilidades" size="10" onChange="fill();">
+					<c:forEach items="${viaje.disponibilidades}" var="disp" >
 						<option value="${disp.id}">${disp.fechaSalida}</option>
+						<c:forEach items="${disp.transportes}" var="trans" >
+							<script>addT("${disp.id}", "${trans.id}", "${trans.nombre}", "${trans.costo}", t)</script>
+						</c:forEach>
+						<c:forEach items="${disp.hoteles}" var="hot" >
+							<script>addT("${disp.id}", "${hot.id}", "${hot.nombre}", "${hot.costo}", h)</script>
+						</c:forEach>
 					</c:forEach>
-
+					
 				</select>
-			</form>
-
+				<select name="transporte" id="transportes" size="10">
+					<option value="ASDAW">asd</option>
+				</select>
+				<select name="hotel" id="hoteles" size="10">
+					<option value="ASDAW">asd</option>
+				</select>
+				<button type="submit">Comprar</button>
+			</form> 
 		</div>
 	</div>
 
-
+<SCRIPT type="text/javascript">
+var list_t = document.getElementById("transportes");
+var list_h = document.getElementById("hoteles");
+</SCRIPT>
 </div>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<div id="content" xmlns:c="http://java.sun.com/jsp/jstl/core"
+	xmlns:field="urn:jsptagdir:/WEB-INF/tags/form/fields"
+	xmlns:jsp="http://java.sun.com/JSP/Page"
+	xmlns:page="urn:jsptagdir:/WEB-INF/tags/form" version="2.0">
+	<jsp:directive.page contentType="text/html;charset=UTF-8" />
+	<jsp:output omit-xml-declaration="yes" />
+	
+	Uds ha comprado el viaje<br/>
+	<ul>
+		<li>Viaje: ${viaje}</li>
+		<li>Trans: ${transporte}</li>
+		<li>Disp: ${disponibilidad}</li>
+		<li>Hotel: ${hotel}</li>
+	</ul>
+	
+	
+	The end :D
+</div>

@@ -8,5 +8,9 @@
         <field:display field="email" id="s_com_dac2014_json_model_Usuario_email" object="${usuario}" z="N/nO1ZeqNGwc1nIT3Nq6i/n6dpI="/>
         <field:display date="true" dateTimePattern="${usuario_fechanac_date_format}" field="fechaNac" id="s_com_dac2014_json_model_Usuario_fechaNac" object="${usuario}" z="t54ffOvyB1/oabHej92k2DhlZk0="/>
         <field:display date="true" dateTimePattern="${usuario_fecharegistro_date_format}" field="fechaRegistro" id="s_com_dac2014_json_model_Usuario_fechaRegistro" object="${usuario}" z="Bxr2d3dr6Ur9BTGsYLgII6BdJsc="/>
+        <field:display field="password" id="s_com_dac2014_json_model_Usuario_password" object="${usuario}" z="lyRJx9BHRVMckO2V+w7dLn6dAxQ="/>
+        <field:display field="role" id="s_com_dac2014_json_model_Usuario_role" object="${usuario}" z="hIrgzpal3dkeEy33imnz9e3ath0="/>
+        <field:display field="username" id="s_com_dac2014_json_model_Usuario_username" object="${usuario}" z="tZyBu5XbJg4EWCzBWgI1SWh7Xb4="/>
+        <field:display field="enable" id="s_com_dac2014_json_model_Usuario_enable" object="${usuario}" z="trhF40KleCPGKfyrptlytIqm/h8="/>
     </page:show>
 </div>

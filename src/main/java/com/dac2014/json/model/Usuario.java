@@ -19,7 +19,15 @@ public class Usuario {
     private String apellido;
 
     private String email;
-
+    
+    private String password;
+    
+    private Boolean enable;
+    
+    private String role;
+    
+    private String username;
+    
     @Temporal(TemporalType.TIMESTAMP)
     @DateTimeFormat(style = "M-")
     private Date fechaNac;

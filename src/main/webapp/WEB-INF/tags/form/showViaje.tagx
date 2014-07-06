@@ -10,7 +10,12 @@
       <ul>
         <li class="col-left">
           <ul>
-            <li><img src="http://www.rinconeducativo.org/radiacio/viajes.gif"/></li>
+            <li>
+            	<c:forEach items="${viaje.imagenes}" var="imagen" end="0">
+					<a href="#"><img
+						src="/json/imagens/${imagen.id}/image" /></a>
+				</c:forEach>
+            </li>
             
 			
             <li class="content-summary">
